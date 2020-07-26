@@ -1,0 +1,20 @@
+[
+  {
+    "key": "Search",
+    "href": "#/search",
+    "title": "Search",
+    "icon": "search"
+  },
+  {
+    "key": "User",
+    "href": "#/user",
+    "title": "user",
+    "icon": "user"
+  },
+  {
+    "key": "About",
+    "href": "#/about",
+    "title": "About",
+    "icon": "information"
+  }
+]

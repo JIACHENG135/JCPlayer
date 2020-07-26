@@ -1,0 +1,85 @@
+@import '~@/src/styles/_var.less';
+@import '~@/src/styles/antd-theme.less';
+
+.site-layout-content {
+  background: #ffffff;
+  padding: 24px;
+  height: 100%;
+  overflow: auto;
+}
+.book-section-area {
+  background-color: #ffffff !important;
+}
+.scroll-area {
+  background-color: #ffffff !important;
+}
+.demo-container {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+p {
+  text-align: center;
+  padding-bottom: 5px;
+}
+.ant-layout-sider {
+  background-color: @titlebar_background;
+  // background-color: transparent;
+}
+.logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+[data-theme='light'] .site-layout-content {
+  background: #141414;
+}
+[data-theme='light'] .logo {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* For demo */
+.ant-carousel .slick-slide {
+  // width: 300px;
+  height: 400px;
+  text-align: center;
+  background: #ffffff;
+  overflow: hidden;
+  img {
+    // height: 100%;
+    width: 100%;
+    // object-fit: fill;
+  }
+}
+
+.ant-carousel .slick-slide h3 {
+  color: black;
+}
+
+.carousel-image {
+  width: 100%;
+  border-radius: 10px;
+  z-index: 100;
+}
+.carousel-layer {
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  &:hover {
+    box-shadow: @shadow-1-down;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+}
+.item-class {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.sync-icon {
+  text-align: center;
+  padding-left: 50%;
+}

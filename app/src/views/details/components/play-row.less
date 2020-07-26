@@ -1,0 +1,56 @@
+@import '~@/src/styles/antd-theme.less';
+
+.play-row {
+  .item-image {
+    height: 70%;
+    border-radius: 5px;
+    z-index: -1;
+  }
+  .item-text {
+    height: 10%;
+    font-size: 0.8rem;
+  }
+  .rate {
+    height: 5%;
+  }
+  .rating-text {
+    padding-right: 5px;
+    font-size: 0.7rem;
+  }
+  .item-layer {
+    // padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    height: 250px;
+    text-align: center;
+    padding-bottom: 2%;
+    padding-top: 8%;
+    &:hover {
+      box-shadow: @shadow-1-down;
+      transition: box-shadow 0.6s ease-in-out;
+    }
+  }
+  .item-class {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+
+  .ant-rate-star {
+    font-size: 0.8rem;
+  }
+  .ep-text {
+    // font-family: 'Source Sans Pro', sans-serif !important;
+    font-size: 0.2em;
+  }
+  .playlist {
+    margin: auto;
+    font-size: 0.2em;
+  }
+}
+
+.play-row-container {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

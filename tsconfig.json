@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "CommonJS",
+    "strict": true,
+    "jsx": "react",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "sourceMap": true,
+    "locale": "zh-CN",
+    "baseUrl": ".",
+    "types": ["webpack-env", "node"],
+    "paths": {
+      "@/*": ["app/*"],
+      "@root/*": ["*"]
+    },
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost", "es5"]
+  },
+  "include": ["app/typescript", "app/**/*.ts", "app/**/*.tsx"],
+  "exclude": ["node_modules", "build", "dist", "release", "assets"]
+}
