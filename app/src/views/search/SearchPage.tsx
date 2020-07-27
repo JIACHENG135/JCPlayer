@@ -67,7 +67,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   // canva = document.createElement('CANVAS')
   componentWillUnmount() {}
   componentDidMount() {
-    win.on('resize', this.throttle(this.onResize, 1000).bind(this, win))
+    win.on('resize', this.throttle(this.onResize, 200).bind(this, win))
     $tools.setTheme(6)
     const assets = $tools.ASSETS_PATH
     const bgStyle =
@@ -114,15 +114,15 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   onResize(win: BrowserWindow) {
     const bound = win.getBounds()
     if (!this.state.createWindowLoading) {
-      if (bound.width < 800 && this.state.cols != 2) {
+      if (bound.width < 800) {
         this.setState({
           cols: 2,
         })
-      } else if (bound.width < 1200 && this.state.cols != 4) {
+      } else if (bound.width < 1200) {
         this.setState({
           cols: 4,
         })
-      } else if (bound.width < 1600 && this.state.cols != 6) {
+      } else if (bound.width < 1600) {
         this.setState({
           cols: 6,
         })

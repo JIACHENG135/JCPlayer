@@ -78,13 +78,18 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
       rating: this.props.item.评分,
       address: this.props.item.address,
     }
-
+    let nameText
+    if (carouselItem.name && carouselItem.name?.length > 10) {
+      nameText = carouselItem.name?.substr(0, 10) + '...'
+    } else {
+      nameText = carouselItem.name
+    }
     return (
       <div>
         <div className="item-layer" onClick={this.handleDetail.bind(this, carouselItem)}>
           <img src={carouselItem.cover} alt="" className="item-image" />
-          <p className="item-text">{carouselItem.name}</p>
-          <span className="rating-text">评分: </span>
+          <p className="item-text">{nameText}</p>
+
           <Rate disabled defaultValue={parseInt(carouselItem.rating)} className="rate" />
         </div>
         {/* <Timeline

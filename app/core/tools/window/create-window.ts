@@ -74,6 +74,7 @@ export function createWindow(key: RouterKey, options: CreateWindowOptions = {}):
         // activeWin.webContents.reload()
         // resolve(activeWin)
         // return activeWin
+        activeWin.close()
       }
     }
 
