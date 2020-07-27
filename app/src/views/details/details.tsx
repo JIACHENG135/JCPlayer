@@ -201,15 +201,7 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
 
     let rating
     if (parseInt(this.state.data.rating) > 0) {
-      rating = (
-        <p className="book-text cata-tag">
-          评分: {this.state.data.rating}{' '}
-          <span>
-            ({this.state.data.ratingfreq}
-            {'人评分'})
-          </span>
-        </p>
-      )
+      rating = <p className="book-text cata-tag">评分: {this.state.data.rating}</p>
     } else {
       rating = ''
     }
@@ -322,7 +314,6 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
                     {rating}
                     {update}
                     {pres}
-                    {alia}
                     {cate}
                     {region}
                     {lang}

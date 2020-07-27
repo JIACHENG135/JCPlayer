@@ -10,7 +10,6 @@ import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from
 // import { Button, Input, Spin, Card } from 'antd'
 
 // import './login.module.less'
-// import './canvas.less'
 
 declare global {
   interface Window {

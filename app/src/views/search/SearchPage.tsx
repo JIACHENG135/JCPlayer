@@ -8,7 +8,7 @@ import BookRow from './components/book-row'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import path from 'path'
 import './search.less'
-// import './canvas.less'
+
 import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcRendererEvent } from 'electron'
 
 // const themePath = $tools.asAssetsPath('/themes/')
@@ -69,7 +69,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   componentWillUnmount() {}
   componentDidMount() {
     win.on('resize', this.throttle(this.onResize, 1000).bind(this, win))
-    // $tools.setTheme(6)
+    $tools.setTheme(6)
     const assets = $tools.ASSETS_PATH
     const bgStyle =
       process.platform == 'darwin'
