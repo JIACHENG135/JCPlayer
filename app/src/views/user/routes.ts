@@ -9,7 +9,7 @@ const routes: RouteConfig[] = [
       minHeight: 600,
       minWidth: 600,
       frame: false,
-      transparent: true,
+      transparent: process.platform == 'darwin' ? true : false,
     },
     createConfig: {
       showSidebar: false,

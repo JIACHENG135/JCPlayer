@@ -24,7 +24,7 @@ export default class PlayRow extends React.Component<PlayRowProps> {
       .createWindow('Trans', {
         windowOptions: {
           title: 'Translating results',
-          transparent: true,
+          transparent: process.platform == 'darwin' ? true : false,
           minWidth: 200,
           minHeight: 200,
           width: 1500,

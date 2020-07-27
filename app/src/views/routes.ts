@@ -5,7 +5,7 @@ const routes: RouteConfig[] = [
     redirect: { to: '/demo?form=home' },
     windowOptions: {
       title: 'App Home (redirect to demo)',
-      transparent: true,
+      transparent: process.platform == 'darwin' ? true : false,
       minHeight: 800,
       minWidth: 1000,
     },

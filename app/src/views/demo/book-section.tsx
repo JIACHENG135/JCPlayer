@@ -85,7 +85,7 @@ export default class BookSection extends React.Component<BookSectionProps, BookS
       })
       .catch(err => {
         $tools.createWindow('Login', {
-          windowOptions: { title: 'Login', transparent: true },
+          windowOptions: { title: 'Login', transparent: process.platform == 'darwin' ? true : false },
         })
       })
       .finally(() => {
@@ -125,7 +125,11 @@ export default class BookSection extends React.Component<BookSectionProps, BookS
         console.log('Errrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
         console.log(err)
         $tools.createWindow('Login', {
-          windowOptions: { title: 'Login', frame: false, transparent: true },
+          windowOptions: {
+            title: 'Login',
+            frame: false,
+            transparent: process.platform == 'darwin' ? true : false,
+          },
         })
       })
       .finally(() => {

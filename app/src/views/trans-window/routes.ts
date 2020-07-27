@@ -5,7 +5,7 @@ const routes: RouteConfig[] = [
     windowOptions: {
       title: 'transparent window',
       frame: false,
-      transparent: true,
+      transparent: process.platform == 'darwin' ? true : false,
     },
     createConfig: {
       showSidebar: false,
