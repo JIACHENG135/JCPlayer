@@ -79,7 +79,7 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
     const bgStyle =
       process.platform == 'darwin'
         ? '.app-content{background-image: url(' + assets + '/themes/' + theme + '/Valley-3.3s-2255px.png)}'
-        : '.app-content{background-image: url(https://ssjh.s3-ap-northeast-1.amazonaws.com/themes/' +
+        : '.app-content{background-image: url(https://gitee.com/jiacliu/JCPlayer/tree/master/themes' +
           theme +
           '/Valley-3.3s-3000px.png)}'
     win.webContents.insertCSS(bgStyle)
@@ -287,7 +287,7 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
     const domain =
       process.platform == 'darwin'
         ? $tools.ASSETS_PATH + '/themes/'
-        : 'https://ssjh.s3-ap-northeast-1.amazonaws.com/themes/'
+        : 'https://gitee.com/jiacliu/JCPlayer/tree/master/themes'
     const bimage = loading
       ? domain + theme + '/Valley-3.3s-2255px.svg'
       : domain + theme + '/Valley-3.3s-2255px.png'

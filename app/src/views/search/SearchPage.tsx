@@ -72,7 +72,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
     const bgStyle =
       process.platform == 'darwin'
         ? '.app-content{background-image: url(' + assets + '/themes/' + theme + '/Fluid-10s-3000px.png'
-        : '.app-content{background-image: url(https://ssjh.s3-ap-northeast-1.amazonaws.com/themes/' +
+        : '.app-content{background-image: url(https://gitee.com/jiacliu/JCPlayer/tree/master/themes' +
           theme +
           '/Fluid-10s-3000px.png)}'
 
@@ -235,7 +235,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
     const domain =
       process.platform == 'darwin'
         ? $tools.ASSETS_PATH + '/themes/'
-        : 'https://ssjh.s3-ap-northeast-1.amazonaws.com/themes/'
+        : 'https://gitee.com/jiacliu/JCPlayer/tree/master/themes'
     const bimage =
       createWindowLoading || loading
         ? domain + theme + '/Fluid-10s-3000px.svg'

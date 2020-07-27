@@ -54,7 +54,6 @@ export const DEFAULT_WINDOW_OPTIONS: BrowserWindowConstructorOptions = {
   },
   transparent: process.platform == 'darwin' ? true : false,
 
-  // transparent: true, // 窗口是否透明
   show: false,
   // hasShadow: true,
   // icon: APP_ICON,

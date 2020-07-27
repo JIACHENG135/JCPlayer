@@ -23,7 +23,7 @@ export default class About extends React.Component<PageProps> {
     const bgStyle =
       process.platform == 'darwin'
         ? '.app-content{background-image: url(' + assets + '/themes/' + theme + '/Fluid-10s-3000px.svg)}'
-        : '.app-content{background-image: url(https://ssjh.s3-ap-northeast-1.amazonaws.com/themes/' +
+        : '.app-content{background-image: url(https://gitee.com/jiacliu/JCPlayer/tree/master/themes' +
           theme +
           '/Fluid-10s-3000px.svg)}'
     win.webContents.insertCSS(bgStyle)
