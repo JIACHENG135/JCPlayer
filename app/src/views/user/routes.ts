@@ -6,6 +6,8 @@ const routes: RouteConfig[] = [
       title: 'User',
       width: 600,
       height: 600,
+      minHeight: 600,
+      minWidth: 600,
       frame: false,
       transparent: true,
     },

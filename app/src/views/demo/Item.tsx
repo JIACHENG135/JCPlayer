@@ -45,7 +45,8 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
     searchWin?.webContents.send('Search Page Speed Up')
     $tools
       .createWindow('Details', {
-        windowOptions: { title: 'Details', transparent: false },
+        windowOptions: { title: 'Details', transparent: false, resizable: false },
+        createConfig: { single: true },
       })
       .then(() => {
         $tools.windowList.get('SearchPage')?.webContents.send('Search Page Slow Down')

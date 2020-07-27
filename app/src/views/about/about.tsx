@@ -49,7 +49,7 @@ export default class About extends React.Component<PageProps> {
         <p className="fs-12" style={{ margin: 4 }}>
           Version {$tools.APP_VERSION}
         </p>
-        <p className="fs-12">
+        <p className="fs-12" style={{ fontWeight: 400 }}>
           Copyright © {new Date().getFullYear()}{' '}
           <a
             onClick={() => {

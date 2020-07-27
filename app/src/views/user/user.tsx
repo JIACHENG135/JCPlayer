@@ -32,6 +32,7 @@ export default class User extends React.Component<UserProps, UserState> {
   }
   render() {
     // const { count: reduxCount, countAlias } = this.props
+    // src={`${$tools.AssetsPath('profile-img/background.jpg')}`}
     return (
       <div className="user-profile" style={{ height: '100%' }}>
         <Row>
@@ -48,15 +49,15 @@ export default class User extends React.Component<UserProps, UserState> {
             <Col span={4} className="avatar-container">
               <img
                 className="bgimg"
-                src={`${$tools.AssetsPath('profile-img/background.jpg')}`}
+                src="https://source.unsplash.com/random"
                 style={{ position: 'relative', top: '-50px' }}
               ></img>
             </Col>
             <Col span={16} className="avatar-container">
               <Row>
                 <Col>
-                  <span className={'user-name'}>ocn2mon</span>
-                  <span className={'user-intro'}>接受，硬刚，成长</span>
+                  <span className={'user-name'}>JCPlayer User</span>
+                  <span className={'user-intro'}>He said nothing</span>
                 </Col>
               </Row>
               <Row>
@@ -73,9 +74,9 @@ export default class User extends React.Component<UserProps, UserState> {
                 <Col>
                   <div>
                     <span className="work-experience">
-                      <span>HUST</span>
+                      <span>Education</span>
                       <div className="vertical-divider"></div>
-                      <span>TAMU</span>
+                      <span>Institution</span>
                     </span>
                     <span className="education-experience"></span>
                   </div>
@@ -95,16 +96,16 @@ export default class User extends React.Component<UserProps, UserState> {
                 <Col>
                   <div>
                     <span className="work-experience">
-                      <span>SDE</span>
+                      <span>Occupation</span>
                       <div className="vertical-divider"></div>
-                      <span>Intern at ZhuanYao</span>
+                      <span>Title, City</span>
                     </span>
                     <span className="education-experience"></span>
                   </div>
                 </Col>
               </Row>
             </Col>
-            <Col className="avatar-container">
+            <Col>
               <div className={'tail-col'}>
                 <span>
                   <Button
@@ -113,7 +114,7 @@ export default class User extends React.Component<UserProps, UserState> {
                     target="_blank"
                   >
                     {' '}
-                    关注他
+                    Follow Him/Her
                   </Button>
                 </span>
               </div>
