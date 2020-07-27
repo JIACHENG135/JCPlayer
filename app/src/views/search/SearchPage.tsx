@@ -68,7 +68,6 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   componentWillUnmount() {}
   componentDidMount() {
     win.on('resize', this.throttle(this.onResize, 200).bind(this, win))
-    $tools.setTheme(6)
     const assets = $tools.ASSETS_PATH
     const bgStyle =
       process.platform == 'darwin'

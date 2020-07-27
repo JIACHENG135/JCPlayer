@@ -16,7 +16,7 @@ ipcMain.on('Apply Slow Down', (event: any, mes: any) => {
 
 app.on('ready', () => {
   tray = creatAppTray()
-  $tools.getGlobalStore().set('MyTheme', 6)
+  // $tools.getGlobalStore().set('MyTheme', 6)
 
   globalShortcut.register('CommandOrControl+C+1', () => {
     $tools.setTheme(1)
