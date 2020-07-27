@@ -5,14 +5,12 @@ import { withStore } from '@/src/components'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcRendererEvent, IpcMain } from 'electron'
 import PlayList from './components/play-list'
-import Store from 'electron-store'
 import { Layout, Button, Row, Col } from 'antd'
 import { v4 as uuidv4 } from 'uuid'
 import { CloseOutlined } from '@ant-design/icons'
 import './details.less'
 
 const { Content } = Layout
-const store = new Store<any>()
 interface DetailsProps extends PageProps, StoreProps {
   count: StoreStates['count']
   countAlias: StoreStates['count']
@@ -47,11 +45,11 @@ const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
  * DemoState 是组件的 state 类型声明
  * props 和 state 的默认值需要单独声明
  */
-const data = store.get('detail')
-const s4books = store.get('s4books')
+const data = $tools.getGlobalStore().get('detail')
+const s4books = $tools.getGlobalStore().get('s4books')
 let win: BrowserWindow
 win = remote.getCurrentWindow()
-const theme = store.get('MyTheme')
+const theme = $tools.getGlobalStore().get('MyTheme')
 
 @withStore(['count', { countAlias: 'count' }])
 export default class Details extends React.Component<DetailsProps, DetailsState> {
@@ -153,9 +151,9 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
     })
   }
   handlePreviewPdf(locator: string, md5: string, filename: string) {
-    // store.set('pdf-filename', filename)
-    // store.set('locator', locator)
-    // store.set('md5', md5)
+    // $tools.getGlobalStore().set('pdf-filename', filename)
+    // $tools.getGlobalStore().set('locator', locator)
+    // $tools.getGlobalStore().set('md5', md5)
     if (win) {
     } else {
       win = remote.getCurrentWindow()
@@ -165,26 +163,26 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
       .get('http://127.0.0.1:8000/api/downloadlib/' + locator + '/' + md5 + '/' + filename)
       .then((res: any) => {
         loadingUrl = res.data
-        store.set('loadingUrl', loadingUrl)
+        $tools.getGlobalStore().set('loadingUrl', loadingUrl)
         // $tools.createWindow('Prepdf', {
         //   windowOptions: { title: 'Preview PDF file', transparent: false },
         // })
       })
   }
   handlePreview(url: string, filename: any) {
-    store.set('filename', filename)
+    $tools.getGlobalStore().set('filename', filename)
     if (win) {
     } else {
       win = remote.getCurrentWindow()
     }
-    store.set('epuburl', url)
+    $tools.getGlobalStore().set('epuburl', url)
     $tools.createWindow('Preview', {
       windowOptions: { title: 'Preview', transparent: false },
     })
-    store.set('bookname', this.state.data.title)
+    $tools.getGlobalStore().set('bookname', this.state.data.title)
   }
   render() {
-    store.set('poster', this.state.data.cover)
+    $tools.getGlobalStore().set('poster', this.state.data.cover)
 
     const { loading } = this.state
 
@@ -285,7 +283,7 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
 
     const address = this.state.data.address
     const play = <PlayList adds={address} cols={6}></PlayList>
-    store.set('play-list', this.state.data.address)
+    $tools.getGlobalStore().set('play-list', this.state.data.address)
     const domain =
       process.platform == 'darwin'
         ? $tools.ASSETS_PATH + '/themes/'

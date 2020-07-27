@@ -49,7 +49,6 @@ export function getWindowUrl(key: RouterKey, options: CreateWindowOptions = {}):
  * @param options
  */
 
-const mystore = new Store<any>()
 export function createWindow(key: RouterKey, options: CreateWindowOptions = {}): Promise<BrowserWindow> {
   return new Promise(resolve => {
     const routeConfig: RouteConfig | AnyObj = routes.get(key) || {}
@@ -72,7 +71,7 @@ export function createWindow(key: RouterKey, options: CreateWindowOptions = {}):
     if (createConfig.single) {
       activeWin = activeWindow(key)
       if (activeWin) {
-        activeWin.webContents.reload()
+        // activeWin.webContents.reload()
         // resolve(activeWin)
         // return activeWin
       }

@@ -5,10 +5,9 @@ import Store from 'electron-store'
 import less from 'less'
 
 $tools.log.info(`Application <${$tools.APP_NAME}> launched.`)
-const store = new Store<any>()
 
 let tray: Tray
-let activeWin: BrowserWindow | boolean
+
 app.allowRendererProcessReuse = true
 
 ipcMain.on('Apply Slow Down', (event: any, mes: any) => {
@@ -17,7 +16,7 @@ ipcMain.on('Apply Slow Down', (event: any, mes: any) => {
 
 app.on('ready', () => {
   tray = creatAppTray()
-  store.set('MyTheme', 6)
+  $tools.getGlobalStore().set('MyTheme', 6)
 
   globalShortcut.register('CommandOrControl+C+1', () => {
     $tools.setTheme(1)

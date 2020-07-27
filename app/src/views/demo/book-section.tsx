@@ -1,12 +1,10 @@
 import * as React from 'react'
 // import { Button, Input, Spin, Card } from 'antd'
 import { withStore } from '@/src/components'
-import Store from 'electron-store'
 import { Skeleton, Row, Col, Divider } from 'antd'
 import { SyncOutlined } from '@ant-design/icons'
 import ItemList from './ItemList'
 import './book-section.less'
-const store = new Store<any>()
 interface BookSectionProps {
   title: string
 }
@@ -77,7 +75,11 @@ export default class BookSection extends React.Component<BookSectionProps, BookS
       },
     })
     $api
-      .queryTestInfo(bookname, { page: 1 }, { headers: { Authorization: `Token ${store.get('user')}` } })
+      .queryTestInfo(
+        bookname,
+        { page: 1 },
+        { headers: { Authorization: `Token ${$tools.getGlobalStore().get('user')}` } }
+      )
       .then(resData => {
         this.setState({ resData: resData })
       })
@@ -113,7 +115,7 @@ export default class BookSection extends React.Component<BookSectionProps, BookS
       .queryTestInfo(
         bookname,
         { page: randompage },
-        { headers: { Authorization: `Token ${store.get('user')}` } }
+        { headers: { Authorization: `Token ${$tools.getGlobalStore().get('user')}` } }
       )
       .then(resData => {
         console.log(resData)

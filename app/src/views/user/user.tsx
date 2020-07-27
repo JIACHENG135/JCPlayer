@@ -1,12 +1,7 @@
 import * as React from 'react'
 
-// import { ReactReader } from 'react-reader'
-// import Store from 'electron-store'
-// import { Avatar, Badge } from 'antd'
 import { Button, Row, Col } from 'antd'
-// import { AimOutlined } from '@ant-design/icons'
 import './user.less'
-// const { Content } = Layout
 interface UserProps extends PageProps, StoreProps {}
 
 declare interface UserState {}
@@ -16,7 +11,6 @@ declare interface UserState {}
  * DemoState 是组件的 state 类型声明
  * props 和 state 的默认值需要单独声明
  */
-// const store = new Store<any>()
 
 export default class User extends React.Component<UserProps, UserState> {
   // state 初始化
@@ -30,9 +24,8 @@ export default class User extends React.Component<UserProps, UserState> {
   sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms))
   }
+
   render() {
-    // const { count: reduxCount, countAlias } = this.props
-    // src={`${$tools.AssetsPath('profile-img/background.jpg')}`}
     return (
       <div className="user-profile" style={{ height: '100%' }}>
         <Row>

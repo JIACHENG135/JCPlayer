@@ -42,3 +42,6 @@ export function getTheme() {
 export function setTheme(n: number) {
   store.set('MyTheme', n)
 }
+export function getGlobalStore(): Store<any> {
+  return store
+}

@@ -3,7 +3,7 @@ import * as React from 'react'
 import './trans-window.less'
 import VideoPlayer from './videoplayer'
 // import VideoPlayer from './player'
-import Store from 'electron-store'
+
 import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
 // import ReactLoading from 'react-loading'
 
@@ -26,7 +26,6 @@ declare global {
 }
 
 const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
-const store = new Store<any>()
 const win: BrowserWindow = remote.getCurrentWindow()
 // const win: BrowserWindow | undefined = $tools.windowList.get('Trans')
 let winSize: Array<number>
@@ -88,14 +87,14 @@ export default class TransWindow extends React.Component<LoginProps, LoginState>
     const videoJsOptions = {
       // autoPlay: true,
       controls: true,
-      src: store.get('play-url'),
+      src: $tools.getGlobalStore().get('play-url'),
       // sources: [
       //   {
-      //     src: store.get('play-url'),
+      //     src: $tools.getGlobalStore().get('play-url'),
       //     type: 'video/mp4',
       //   },
       // ],
-      poster: store.get('poster'),
+      poster: $tools.getGlobalStore().get('poster'),
       width: winWidth,
       height: winHeight,
     }

@@ -15,15 +15,10 @@ export default class About extends React.Component<PageProps> {
     // document.body.appendChild(script1)
   }
   componentDidMount() {
-    const store = new Store<any>()
     const { remote } = window.require('electron')
     const win = remote.getCurrentWindow()
-    const key = store.get('globalBg')
-    const theme = store.get('MyTheme')
-    // if (key) {
-    //   console.log(typeof key)
-    //   win.webContents.removeInsertedCSS(key)
-    // }
+    const theme = $tools.getGlobalStore().get('MyTheme')
+
     const assets = $tools.ASSETS_PATH
     const bgStyle =
       process.platform == 'darwin'

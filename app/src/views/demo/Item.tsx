@@ -27,7 +27,6 @@ declare global {
 }
 const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
 
-const store = new Store<any>()
 export default class Item extends React.Component<CarouselItemProps, CarouselItemState> {
   constructor(props: CarouselItemProps) {
     super(props)
@@ -37,8 +36,8 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
   }
   handleDetail(data: any) {
     // console.log(data)
-    // store.set('pkvalue', pk)
-    store.set('detail', data)
+    // $tools.getGlobalStore().set('pkvalue', pk)
+    $tools.getGlobalStore().set('detail', data)
     // console.log(browserWindow)
     const searchWin: BrowserWindow | undefined = $tools.windowList.get('SearchPage')
     console.log(searchWin)

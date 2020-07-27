@@ -1,14 +1,12 @@
 import * as React from 'react'
 // import { Button, Input, Spin, Card } from 'antd'
 import { withStore } from '@/src/components'
-import Store from 'electron-store'
 import { Layout, Form, Input, Button, Checkbox } from 'antd'
 import './register.less'
-import './canvas.less'
+
 // import { UserOutlined, LockOutlined } from '@ant-design/icons'
 
 const { Content, Sider } = Layout
-const store = new Store<any>()
 interface RegisterProps extends PageProps, StoreProps {
   count: StoreStates['count']
   countAlias: StoreStates['count']
@@ -74,7 +72,7 @@ export default class Register extends React.Component<RegisterProps, RegisterSta
       })
 
       if (data.remember) {
-        store.set('user', resData.Token)
+        $tools.getGlobalStore().set('user', resData.Token)
       }
     })
     this.setState({ loading: false })

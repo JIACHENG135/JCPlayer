@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import Store from 'electron-store'
-
 interface PrepdfProps extends PageProps, StoreProps {}
 
 declare interface PrepdfState {
@@ -13,14 +11,13 @@ declare interface PrepdfState {
  * DemoState 是组件的 state 类型声明
  * props 和 state 的默认值需要单独声明
  */
-const store = new Store<any>()
 
-const filename = store.get('pdf-filename')
+const filename = $tools.getGlobalStore().get('pdf-filename')
 
 export default class Prepdf extends React.Component<PrepdfProps, PrepdfState> {
   // state 初始化
   state: PrepdfState = {
-    location: store.get(filename) ? store.get(filename) : 2,
+    location: $tools.getGlobalStore().get(filename) ? $tools.getGlobalStore().get(filename) : 2,
   }
 
   // 构造函数

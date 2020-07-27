@@ -1,6 +1,4 @@
 import * as React from 'react'
-
-import Store from 'electron-store'
 interface PreviewProps extends PageProps, StoreProps {}
 
 declare interface PreviewState {
@@ -12,13 +10,13 @@ declare interface PreviewState {
  * DemoState 是组件的 state 类型声明
  * props 和 state 的默认值需要单独声明
  */
-const store = new Store<any>()
-const filename = store.get('filename')
+
+const filename = $tools.getGlobalStore().get('filename')
 
 export default class Preview extends React.Component<PreviewProps, PreviewState> {
   // state 初始化
   state: PreviewState = {
-    location: store.get(filename) ? store.get(filename) : 2,
+    location: $tools.getGlobalStore().get(filename) ? $tools.getGlobalStore().get(filename) : 2,
   }
 
   // 构造函数

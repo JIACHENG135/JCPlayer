@@ -1,7 +1,7 @@
 import * as React from 'react'
 // import { Button, Input, Spin, Card } from 'antd'
 import { withStore } from '@/src/components'
-import Store from 'electron-store'
+
 import axios from 'axios'
 import { Layout, Input, Row, Col, Radio, Button } from 'antd'
 import BookRow from './components/book-row'
@@ -15,7 +15,6 @@ import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcRendererEve
 
 // const fast = require($tools.asAssetsPath('/themes/1/Fluid-3.3s-3000px.svg'))
 
-const store = new Store<any>()
 // console.log(images)
 
 const { Header, Content } = Layout
@@ -46,7 +45,7 @@ declare interface SearchState {
  * SearchState 是组件的 state 类型声明
  * props 和 state 的默认值需要单独声明
  */
-const theme = store.get('MyTheme')
+const theme = $tools.getGlobalStore().get('MyTheme')
 @withStore(['count', { countAlias: 'count' }])
 export default class SearchPage extends React.Component<SearchProps, SearchState> {
   // state 初始化
@@ -80,7 +79,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
 
     const key = win.webContents.insertCSS(bgStyle)
 
-    store.set('globalBg', key)
+    $tools.getGlobalStore().set('globalBg', key)
     ipcRenderer.on('Search Page Speed Up', (event: IpcRendererEvent, msg: any) => {
       this.setState(msg => ({
         createWindowLoading: true,
@@ -136,7 +135,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   }
   handlesearch(value: any) {
     console.log(typeof this.state.value)
-    store.set('searchValue', value)
+    $tools.getGlobalStore().set('searchValue', value)
     try {
       this.setState({
         resData: {

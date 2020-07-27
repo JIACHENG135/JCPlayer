@@ -3,7 +3,6 @@ import * as React from 'react'
 import './fless-trans.less'
 
 // import VideoPlayer from './player'
-import Store from 'electron-store'
 import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
 // import ReactLoading from 'react-loading'
 
@@ -26,7 +25,6 @@ declare global {
 }
 
 const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
-const store = new Store<any>()
 const win: BrowserWindow = remote.getCurrentWindow()
 // const win: BrowserWindow | undefined = $tools.windowList.get('Trans')
 let winSize: Array<number>
