@@ -37,7 +37,8 @@ export function asAbsolutePath(pathStr: string) {
 }
 const store = new Store<any>()
 export function getTheme() {
-  return store.get('MyTheme')
+  const res = store.get('MyTheme', 6)
+  return res
 }
 export function setTheme(n: number) {
   store.set('MyTheme', n)
