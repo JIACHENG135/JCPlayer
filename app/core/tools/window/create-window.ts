@@ -54,10 +54,10 @@ export function createWindow(key: RouterKey, options: CreateWindowOptions = {}):
     const routeConfig: RouteConfig | AnyObj = routes.get(key) || {}
 
     const windowOptions: BrowserWindowConstructorOptions = {
-      ...$tools.DEFAULT_WINDOW_OPTIONS, // 默认新窗口选项
+      // ...$tools.DEFAULT_WINDOW_OPTIONS, // 默认新窗口选项
 
       // 现在调换了23 的顺序
-      ...routeConfig.windowOptions, // routes 中的配置的window选项
+      // ...routeConfig.windowOptions, // routes 中的配置的window选项
       ...options.windowOptions, // 调用方法时传入的选项
     }
 

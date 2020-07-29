@@ -48,7 +48,14 @@ app.on('ready', () => {
     $tools.windowList.get('SearchPage')?.webContents.reload()
   })
 
-  $tools.createWindow('SearchPage')
+  const size = screen.getPrimaryDisplay().workAreaSize
+  const width = size.width
+  const height = size.height
+
+  $tools.createWindow('Wall', {
+    windowOptions: { type: 'desktop', transparent: false, width: width, height: height + 100 },
+    createConfig: { showTitlebar: false, showSidebar: false },
+  })
 })
 
 app.on('activate', () => {
