@@ -1,4 +1,4 @@
-# LibGen
+# JCPlayer
 <span><a href="https://github.com/JIACHENG135/JCPlayer/blob/master/README.zh-cn.md">中文</a></span>
 <div align="center">
 
