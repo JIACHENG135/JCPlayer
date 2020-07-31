@@ -1,7 +1,7 @@
 {
   "name": "JCPlayer",
   "appId": "org.electron.electron-antd",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "buildVersion": "0004",
   "private": false,
   "main": "dist/main/main.js",
