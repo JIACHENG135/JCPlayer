@@ -58,7 +58,19 @@ npm run dev
 ### 电影播放
 ![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Play.png)
 
-
+## 六个主题
+### 主题一
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme1.png)
+### 主题二
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme2.png)
+### 主题三
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme3.png)
+### 主题四
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme4.png)
+### 主题五
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme5.png)
+### 主题七
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme7.png)
 在Windows上
 ### 关于
 ![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20About.png)
