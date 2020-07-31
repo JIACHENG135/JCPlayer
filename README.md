@@ -1,4 +1,26 @@
-# JCPlayer
+<p align="center">
+<img width='80px;' height="80px;" src='https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/app-icon/app-icon%40128.png'>
+</p>
+<p align="center">
+<a href="http://jcplayer.me/" target="_blank">官网</a>
+<a href="https://github.com/jiacheng135/ZY-Player/issues" target="_blank">反馈</a>
+</p>
+<p align="center">
+<img src="https://forthebadge.com/images/badges/built-with-love.svg">
+<p>
+<p align="center">
+<img src="https://github.com/aleen42/badges/raw/master/src/visual_studio_code_flat_square.svg?sanitize=true">
+<img src="https://github.com/aleen42/badges/raw/master/src/vue_flat_square.svg?sanitize=true">
+<img src="https://github.com/aleen42/badges/raw/master/src/javascript_flat_square.svg?sanitize=true">
+<img src="https://github.com/aleen42/badges/raw/master/src/eslint_flat_square.svg?sanitize=true">
+</p>
+<p align="center">
+<img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Hunlongyu/ZY-Player/total?style=for-the-badge">
+<img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/Hunlongyu/ZY-Player?include_prereleases&style=for-the-badge">
+<img alt="GitHub" src="https://img.shields.io/github/license/Hunlongyu/ZY-Player?style=for-the-badge">
+<img src="https://img.shields.io/github/workflow/status/Hunlongyu/ZY-Player/release-build?style=for-the-badge">
+<p>
+#JCPlayer
 <span><a href="https://github.com/JIACHENG135/JCPlayer/blob/master/README.zh-cn.md">中文</a></span>
 <div align="center">
 
