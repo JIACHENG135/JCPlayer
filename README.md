@@ -3,7 +3,7 @@
 </p>
 <p align="center">
 <a href="http://jcplayer.me/" target="_blank">官网</a>
-<a href="https://github.com/jiacheng135/ZY-Player/issues" target="_blank">反馈</a>
+<a href="https://github.com/jiacheng135/JCPlayer/issues" target="_blank">反馈</a>
 </p>
 <p align="center">
 <img src="https://forthebadge.com/images/badges/built-with-love.svg">
