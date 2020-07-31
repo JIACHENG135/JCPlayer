@@ -55,31 +55,30 @@ Incoming
 
 ## Screenshots
 For Mac
-### AboutPage
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20About.png)
-### Search
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Search.png)
-### Book Detail
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Detail.png)
-### UserProfile
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20UserProfile.png)
-### Fiction Details Page
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Fiction%20Detail.png)
-### Preview PDF file
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Preview%20PDF.png)
-### Translate any language to Chinese
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Translate.png)
-For Windows
-### AboutPage
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/2020-06-01%20-%20About.jpg)
-### Search
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/2020-06-01%20-%20Search%20.jpg)
-### Book Detail
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/2020-06-01%20-%20Detail.jpg)
-### UserProfile
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/2020-06-01%20-%20UserProfile.jpg)
-### PreviewBook
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/2020-06-01%20Preview.jpg)
+### About Page
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/About.png)
+### Video Details
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Details.png)
+### Searching Results
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Results.png)
+### User Profile
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/UserPage.png)
+### Video play
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Play.png)
+
+## Six themes
+### Theme 1
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme1.png)
+### Theme 2
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme2.png)
+### Theme 3
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme3.png)
+### Theme 4
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme4.png)
+### Theme 5
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme5.png)
+### Theme 6
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme7.png)
 
 
 
