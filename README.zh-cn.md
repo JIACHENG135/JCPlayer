@@ -48,15 +48,15 @@ npm run dev
 
 在Mac上
 ### 关于
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20About.png)
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/About.png)
 ### 电影详情
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Search.png)
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Details.png)
 ### 搜索结果
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Detail.png)
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Results.png)
 ### 用户信息
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20UserProfile.png)
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/User.png)
 ### 电影播放
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Preview%20PDF.png)
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Play.png)
 
 
 在Windows上
