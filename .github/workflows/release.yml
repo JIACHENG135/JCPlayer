@@ -39,31 +39,24 @@ jobs:
       - name: npm install
         run: |
           npm install
-
       # step4: build app for mac/win
       - name: build windows app
         if: matrix.os == 'windows-2019'
         run: |
           npm run build
-
-
       - name: build mac app
         if: matrix.os == 'macos-10.15'
         run: |
           npm run build
-
-
       # step5: cleanup artifacts in dist_electron
       - name: cleanup artifacts for windows
         if: matrix.os == 'windows-2019'
         run: |
           npx rimraf "release/!(*.exe)"
-
       - name: cleanup artifacts for macosZ
         if: matrix.os == 'macos-10.15'
         run: |
           npx rimraf "release/!(*.dmg)"
-
       # step6: upload artifacts
       - name: upload artifacts
         uses: actions/upload-artifact@v2
