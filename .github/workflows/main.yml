@@ -34,9 +34,6 @@ jobs:
       # step2: install node env
       - name: Install Node.js
         uses: actions/setup-node@v2-beta
-      
-      - name: Install Yarn
-        uses: borales/actions-yarn@v2.0.0
 
       # step3: npm install
       - name: npm install
@@ -54,7 +51,7 @@ jobs:
       - name: build mac app
         if: matrix.os == 'macos-10.15'
         run: |
-          yarn run buid
+          npm run build
         env:
           GH_TOKEN: 08bb1d8213f4a606d81e6845604f454e7b1f73b9
 
