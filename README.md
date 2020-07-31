@@ -10,15 +10,12 @@
 <p>
 <p align="center">
 <img src="https://github.com/aleen42/badges/raw/master/src/visual_studio_code_flat_square.svg?sanitize=true">
-<img src="https://github.com/aleen42/badges/raw/master/src/vue_flat_square.svg?sanitize=true">
-<img src="https://github.com/aleen42/badges/raw/master/src/javascript_flat_square.svg?sanitize=true">
-<img src="https://github.com/aleen42/badges/raw/master/src/eslint_flat_square.svg?sanitize=true">
+<img src="https://aleen42.github.io/badges/src/react.svg">
+<img src="https://aleen42.github.io/badges/src/typescript.svg">
+<img src="https://aleen42.github.io/badges/src/webpack.svg">
 </p>
 <p align="center">
-<img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Hunlongyu/ZY-Player/total?style=for-the-badge">
-<img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/Hunlongyu/ZY-Player?include_prereleases&style=for-the-badge">
-<img alt="GitHub" src="https://img.shields.io/github/license/Hunlongyu/ZY-Player?style=for-the-badge">
-<img src="https://img.shields.io/github/workflow/status/Hunlongyu/ZY-Player/release-build?style=for-the-badge">
+<img alt="GitHub" src="https://github.com/JIACHENG135/JCPlayer/workflows/Build%20Electron%20App%20For%20Win/Mac/badge.svg?branch=v1.0.10">
 <p>
 #JCPlayer
 <span><a href="https://github.com/JIACHENG135/JCPlayer/blob/master/README.zh-cn.md">中文</a></span>
