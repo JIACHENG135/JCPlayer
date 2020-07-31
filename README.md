@@ -6,7 +6,7 @@
   
 </div>
 
-LibGen Desktop is a lightweight, fast and free video searching and sharing engine for MacOS, Windows and Linux.
+JCPlayer Desktop is a lightweight, fast and free video searching and sharing engine for MacOS, Windows and Linux.
 
 This application's infra and skeleton is inspired and inherit from <a href="https://github.com/lanten/electron-antd"> here </a>
 
