@@ -16,14 +16,8 @@
 </p>
 <p align="center">
 <img alt="GitHub" src="https://github.com/JIACHENG135/JCPlayer/workflows/Build%20Electron%20App%20For%20Win/Mac/badge.svg?branch=v1.0.10">
-<p>
-#JCPlayer
-<span><a href="https://github.com/JIACHENG135/JCPlayer/blob/master/README.zh-cn.md">中文</a></span>
-<div align="center">
+</p>
 
-  <img width='80px;' height="80px;" src='https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/app-icon/app-icon%40128.png'>
-  
-</div>
 
 JCPlayer Desktop is a lightweight, fast and free video searching and sharing engine for MacOS, Windows and Linux.
 
