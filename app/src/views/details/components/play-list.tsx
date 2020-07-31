@@ -20,8 +20,10 @@ export default class PlayList extends React.Component<BookRowItemProps> {
     const playarea = new Array<any>()
     playcol = new Array<any>()
     let ct = 0
+    let n = 1
+    console.log(adds, cols)
     adds.map((add: any, ind: number) => {
-      if ((ind + 1) % (cols + 1) != 0) {
+      if (n % cols != 0) {
         playcol.push(add)
       } else {
         if (playcol.length > 0) {
@@ -32,6 +34,7 @@ export default class PlayList extends React.Component<BookRowItemProps> {
         playcol = new Array<any>()
         ct = ct + cols
       }
+      n = n + 1
     })
     if (playcol.length > 0) {
       playarea.push(<PlayRow key={uuidv4()} items={playcol} cols={Math.floor(24 / cols)} start={ct}></PlayRow>)

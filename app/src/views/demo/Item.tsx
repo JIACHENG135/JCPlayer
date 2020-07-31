@@ -37,6 +37,7 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
   handleDetail(data: any) {
     // console.log(data)
     // $tools.getGlobalStore().set('pkvalue', pk)
+    console.log(data)
     $tools.getGlobalStore().set('detail', data)
     // console.log(browserWindow)
     const searchWin: BrowserWindow | undefined = $tools.windowList.get('SearchPage')
