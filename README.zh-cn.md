@@ -54,7 +54,7 @@ npm run dev
 ### 搜索结果
 ![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Results.png)
 ### 用户信息
-![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/User.png)
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/UserPage.png)
 ### 电影播放
 ![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Play.png)
 
