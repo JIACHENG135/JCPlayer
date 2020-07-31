@@ -1,12 +1,12 @@
 # LibGen
-<span><a href="https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/README.zh-cn.md">中文</a></span>
+<span><a href="https://github.com/JIACHENG135/JCPlayer/blob/master/README.zh-cn.md">中文</a></span>
 <div align="center">
 
   <img width='80px;' height="80px;" src='https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/app-icon/app-icon%40128.png'>
   
 </div>
 
-LibGen Desktop is a lightweight, fast and free book searching and sharing engine for MacOS, Windows and Linux.
+LibGen Desktop is a lightweight, fast and free video searching and sharing engine for MacOS, Windows and Linux.
 
 This application's infra and skeleton is inspired and inherit from <a href="https://github.com/lanten/electron-antd"> here </a>
 
@@ -14,44 +14,13 @@ This application's infra and skeleton is inspired and inherit from <a href="http
 
 Finished:
 
-- Search books
-- Get ratings from www.douban.com
-- Download books
-- User register and login
+- Search videos
+- Multiple themes
+- Preview videos
 
 Incoming
 - User social system
-- User can collect books
-- Push to kindle(Developing stage)
-- Reading tools which support mouse hover translate
-- Download quota for non-registered user
-
-## Stacks
-### Frontend
-- webpack
-- electron
-- electron-builder
-- electron-log
-- react
-- react-router
-- redux
-- ant-design
-- remixicon
-- less
-- typescript
-- eslint
-- prettier
-### Backend
-- Django
-- Django ORM
-- Django Restful Framework
-- PostgreSQL
-### Server/Middleware
-- Redis
-- Celery
-- Heroku Scaling Service
-- Gunicorn
-- Amazon S3 static storage
+- User can collect videos
 
 ## Screenshots
 For Mac
