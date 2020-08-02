@@ -67,7 +67,7 @@ jobs:
         if: matrix.os == 'ubuntu-18.04'
         run: |
           mkdir artifacts
-          mv release/*.dmg artifacts || true
+          mv release/*.AppImage artifacts || true
       # step6: upload artifacts
       - name: upload artifacts
         uses: actions/upload-artifact@v2
