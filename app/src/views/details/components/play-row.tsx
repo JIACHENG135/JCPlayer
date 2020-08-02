@@ -42,6 +42,7 @@ export default class PlayRow extends React.Component<PlayRowProps> {
   }
   render() {
     const { cols, items, start } = this.props
+    console.log(items)
     const colArea = items.map((add: string, ind: number) => {
       return (
         <Col key={uuidv4()} span={cols} className="playlist">

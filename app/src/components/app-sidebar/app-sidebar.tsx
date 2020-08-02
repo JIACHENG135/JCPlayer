@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tooltip } from 'antd'
-
+import { v4 as uuidv4 } from 'uuid'
 import AppSideMenus from './side-menus.json'
 import './app-sidebar.less'
 
@@ -14,7 +14,8 @@ interface SideMenuItem {
 interface State {
   activeMenuKey: string
 }
-
+const { remote } = window.require('electron')
+const win = remote.getCurrentWindow()
 export class AppSidebar extends React.Component<{}, State> {
   state: State = {
     activeMenuKey: AppSideMenus[0]?.key,
@@ -26,7 +27,14 @@ export class AppSidebar extends React.Component<{}, State> {
       this.setState({ activeMenuKey: routeProps.name })
     })
   }
-
+  exit() {
+    win.close()
+  }
+  exitIcon = (
+    <Tooltip key={uuidv4()} overlayClassName="side-menu-item-tooltip" placement="right" title="Exit">
+      <a className="side-menu-item fs-24 ri-picture-in-picture-exit-fill" onClick={this.exit.bind(this)}></a>
+    </Tooltip>
+  )
   render() {
     return (
       <div className="app-sidebar">
@@ -36,7 +44,11 @@ export class AppSidebar extends React.Component<{}, State> {
           {/* <embed  width="40" src={$tools.APP_SVG} type="image/svg+xml" /> */}
         </div>
 
-        <div className="flex column side-menu">{AppSideMenus.map(this.renderMenuItem)}</div>
+        <div className="flex column side-menu">
+          {AppSideMenus.map(this.renderMenuItem)}
+          {process.platform == 'win32' ? this.exitIcon : ''}
+        </div>
+
         {/* <img src={$tools.CAT_GIF} width="80" style={{ position: 'fixed', bottom: '0', paddingLeft: '-1' }} /> */}
       </div>
     )
