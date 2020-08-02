@@ -242,9 +242,9 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
         }}
       >
         <PerfectScrollbar>
-          <Header></Header>
+          <Header className="drag-area"></Header>
           <Content>
-            <Row gutter={[0, 10]}>
+            <Row className="drag-area" gutter={[0, 10]}>
               <Col span={1}></Col>
               <Col span={22}>
                 <div style={{ textAlign: 'center' }}>
