@@ -43,7 +43,7 @@ declare interface SearchState {
  * SearchState 是组件的 state 类型声明
  * props 和 state 的默认值需要单独声明
  */
-const theme = $tools.getGlobalStore().get('MyTheme')
+const theme = $tools.getGlobalStore().get('MyTheme', 1)
 @withStore(['count', { countAlias: 'count' }])
 export default class SearchPage extends React.Component<SearchProps, SearchState> {
   // state 初始化
