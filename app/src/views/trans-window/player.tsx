@@ -26,9 +26,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = (options: any) => {
     player.current = videojs(videoNode.current, {
       ...initialOptions,
       ...options,
-    }).ready(function() {
-      console.log('onPlayerReady', this)
-    })
+    }).ready(function() {})
     return () => {
       if (player.current) {
         player.current.dispose()

@@ -52,8 +52,7 @@ export class LogReader {
       this.watcher = undefined
     }
 
-    this.watcher = fs.watch(file.absolutePath, (event, filename) => {
-      console.log('文件刷新', { event, filename })
+    this.watcher = fs.watch(file.absolutePath, () => {
       listener(this.getLogDetail(file))
     })
   }

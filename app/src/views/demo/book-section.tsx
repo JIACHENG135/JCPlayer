@@ -83,7 +83,7 @@ export default class BookSection extends React.Component<BookSectionProps, BookS
       .then(resData => {
         this.setState({ resData: resData })
       })
-      .catch(err => {
+      .catch(() => {
         $tools.createWindow('Login', {
           windowOptions: { title: 'Login', transparent: process.platform == 'darwin' ? true : false },
         })
@@ -118,12 +118,9 @@ export default class BookSection extends React.Component<BookSectionProps, BookS
         { headers: { Authorization: `Token ${$tools.getGlobalStore().get('user')}` } }
       )
       .then(resData => {
-        console.log(resData)
         this.setState({ resData: resData })
       })
-      .catch(err => {
-        console.log('Errrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
-        console.log(err)
+      .catch(() => {
         $tools.createWindow('Login', {
           windowOptions: {
             title: 'Login',

@@ -66,9 +66,7 @@ export default class Demo extends React.Component<DemoProps, DemoState> {
   scrollSmoothHandlerBio = () => {
     this.scrollDivBio.current.scrollIntoView({ behavior: 'smooth' })
   }
-  onChangeInput = (e: any) => {
-    console.log(typeof e)
-  }
+  onChangeInput = () => {}
   render() {
     // const responsive = {
     //   superLargeDesktop: {

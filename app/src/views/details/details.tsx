@@ -3,7 +3,7 @@ import * as React from 'react'
 import axios from 'axios'
 import { withStore } from '@/src/components'
 import PerfectScrollbar from 'react-perfect-scrollbar'
-import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcRendererEvent, IpcMain } from 'electron'
+import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
 import PlayList from './components/play-list'
 import { Layout, Button, Row, Col } from 'antd'
 import { v4 as uuidv4 } from 'uuid'
@@ -79,21 +79,19 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
     const bgStyle =
       process.platform == 'darwin'
         ? '.app-content{background-image: url(' + assets + '/themes/' + theme + '/Valley-3.3s-2255px.png)}'
-        : '.app-content{background-image: url(https://jiacheng135.github.io/JCPlayer/assets/themes/' +
+        : '.app-content{background-image: url(https://jcplayer.me/Theme/assets/themes/' +
           theme +
-          '/Valley-3.3s-3000px.png)}'
+          '/Valley-3.3s-2255px.png)}'
     win.webContents.insertCSS(bgStyle)
-    ipcRenderer.on('Slow Down', (event: IpcRendererEvent, arg: any) => {
-      this.setState(msg => ({
+    ipcRenderer.on('Slow Down', () => {
+      this.setState(() => ({
         loading: false,
       }))
-      console.log(arg)
     })
-    ipcRenderer.on('Speed Up', (event: IpcRendererEvent, arg: any) => {
-      this.setState(msg => ({
+    ipcRenderer.on('Speed Up', () => {
+      this.setState(() => ({
         loading: true,
       }))
-      console.log(arg)
     })
   }
   handleClose() {
@@ -112,13 +110,11 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
     win.webContents.downloadURL(url)
     win.webContents.session.on('will-download', (event: any, item: DownloadItem) => {
       item.setSavePath(savepath)
-      console.log(savepath)
+
       item.once('done', (event: any, state: any) => {
         if (state === 'completed') {
           n.show()
-          console.log('Finished downloading')
         } else {
-          console.log(`Download failed: ${state}`)
         }
       })
     })
@@ -140,12 +136,10 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
     win.webContents.downloadURL(actUrl)
     win.webContents.session.on('will-download', (event: any, item: DownloadItem) => {
       item.setSavePath(savepath)
-      console.log(savepath)
+
       item.once('done', (event: any, state: any) => {
         if (state === 'completed') {
-          console.log('Finished downloading')
         } else {
-          console.log(`Download failed: ${state}`)
         }
       })
     })
@@ -226,17 +220,6 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
       pres = ''
     }
 
-    let alia
-    if (this.state.data.alia?.length > 0) {
-      alia = (
-        <div>
-          <p className="book-text cata-tag">别名: {this.state.data.alia}</p>
-        </div>
-      )
-    } else {
-      alia = ''
-    }
-
     let cate
     if (this.state.data.cate?.length > 0) {
       cate = (
@@ -287,7 +270,7 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
     const domain =
       process.platform == 'darwin'
         ? $tools.ASSETS_PATH + '/themes/'
-        : 'https://jiacheng135.github.io/JCPlayer/assets/themes/'
+        : 'https://jcplayer.me/Theme/assets/themes/'
     const bimage = loading
       ? domain + theme + '/Valley-3.3s-2255px.svg'
       : domain + theme + '/Valley-3.3s-2255px.png'

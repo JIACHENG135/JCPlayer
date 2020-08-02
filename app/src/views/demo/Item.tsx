@@ -1,9 +1,8 @@
 import React from 'react'
 import './item.less'
 import { Rate } from 'antd'
-import Store from 'electron-store'
 // import { Timeline, Tween } from 'react-gsap'
-import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcRendererEvent, IpcMain } from 'electron'
+import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
 
 interface CarouselItemProps {
   item: CarouselItem
@@ -35,13 +34,10 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
     resData: [{}],
   }
   handleDetail(data: any) {
-    // console.log(data)
-    // $tools.getGlobalStore().set('pkvalue', pk)
-    console.log(data)
     $tools.getGlobalStore().set('detail', data)
-    // console.log(browserWindow)
+
     const searchWin: BrowserWindow | undefined = $tools.windowList.get('SearchPage')
-    console.log(searchWin)
+
     searchWin?.webContents.send('Search Page Speed Up')
     $tools
       .createWindow('Details', {

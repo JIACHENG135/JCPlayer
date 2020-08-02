@@ -15,14 +15,12 @@ export default class PlayList extends React.Component<BookRowItemProps> {
   }
 
   render() {
-    let playcol: Array<any>
     const { adds, cols } = this.props
     const playarea = new Array<any>()
 
     const ct = Math.floor(adds.length / cols)
     let i = 0
     while (i < ct) {
-      console.log(adds.slice(i * cols, (i + 1) * cols))
       playarea.push(
         <PlayRow
           key={uuidv4()}

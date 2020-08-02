@@ -3,7 +3,7 @@ import React from 'react'
 import { Row, Col, Button } from 'antd'
 import { v4 as uuidv4 } from 'uuid'
 import './play-row.less'
-import Store from 'electron-store'
+
 import { PlayCircleOutlined } from '@ant-design/icons'
 import { ipcRenderer } from 'electron'
 interface PlayRowProps {
@@ -42,7 +42,6 @@ export default class PlayRow extends React.Component<PlayRowProps> {
   }
   render() {
     const { cols, items, start } = this.props
-    console.log(items)
     const colArea = items.map((add: string, ind: number) => {
       return (
         <Col key={uuidv4()} span={cols} className="playlist">

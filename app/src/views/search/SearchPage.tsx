@@ -6,16 +6,14 @@ import axios from 'axios'
 import { Layout, Input, Row, Col, Radio, Button } from 'antd'
 import BookRow from './components/book-row'
 import PerfectScrollbar from 'react-perfect-scrollbar'
-import path from 'path'
+
 import './search.less'
 
-import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcRendererEvent } from 'electron'
+import { BrowserWindow } from 'electron'
 
 // const themePath = $tools.asAssetsPath('/themes/')
 
 // const fast = require($tools.asAssetsPath('/themes/1/Fluid-3.3s-3000px.svg'))
-
-// console.log(images)
 
 const { Header, Content } = Layout
 const { Search } = Input
@@ -25,7 +23,7 @@ interface SearchProps extends PageProps, StoreProps {
   countAlias: StoreStates['count']
 }
 
-const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
+const { ipcRenderer, remote } = window.require('electron')
 
 const win: BrowserWindow = remote.getCurrentWindow()
 
@@ -65,27 +63,27 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
     super(props)
   }
   // canva = document.createElement('CANVAS')
-  componentWillUnmount() {}
+
   componentDidMount() {
     win.on('resize', this.throttle(this.onResize, 200).bind(this, win))
     const assets = $tools.ASSETS_PATH
     const bgStyle =
       process.platform == 'darwin'
         ? '.app-content{background-image: url(' + assets + '/themes/' + theme + '/Fluid-10s-3000px.png'
-        : '.app-content{background-image: url(https://jiacheng135.github.io/JCPlayer/assets/themes/' +
+        : '.app-content{background-image: url(https://jcplayer.me/Theme/assets/themes/' +
           theme +
           '/Fluid-10s-3000px.png)}'
 
     const key = win.webContents.insertCSS(bgStyle)
 
     $tools.getGlobalStore().set('globalBg', key)
-    ipcRenderer.on('Search Page Speed Up', (event: IpcRendererEvent, msg: any) => {
-      this.setState(msg => ({
+    ipcRenderer.on('Search Page Speed Up', () => {
+      this.setState(() => ({
         createWindowLoading: true,
       }))
     })
-    ipcRenderer.on('Search Page Slow Down', (event: IpcRendererEvent, msg: any) => {
-      this.setState(msg => ({
+    ipcRenderer.on('Search Page Slow Down', () => {
+      this.setState(() => ({
         createWindowLoading: false,
       }))
     })
@@ -133,7 +131,6 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
     }
   }
   handlesearch(value: any) {
-    console.log(typeof this.state.value)
     $tools.getGlobalStore().set('searchValue', value)
     try {
       this.setState({
@@ -144,7 +141,6 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
       })
 
       axios.get('https://libgen-user.herokuapp.com/?v=' + value + '&page=1&size=24').then((resData: any) => {
-        console.log(resData)
         this.setState({
           resData: resData.data,
           loading: false,
@@ -168,9 +164,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
           loading: false,
         })
       })
-    } catch (err) {
-      console.log(err)
-    }
+    } catch (err) {}
   }
 
   render() {
@@ -235,7 +229,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
     const domain =
       process.platform == 'darwin'
         ? $tools.ASSETS_PATH + '/themes/'
-        : 'https://jiacheng135.github.io/JCPlayer/assets/themes/'
+        : 'https://jcplayer.me/Theme/assets/themes/'
     const bimage =
       createWindowLoading || loading
         ? domain + theme + '/Fluid-10s-3000px.svg'
