@@ -9,7 +9,6 @@
 <img src="https://forthebadge.com/images/badges/built-with-love.svg">
 <p>
 <p align="center">
-<img src="https://github.com/aleen42/badges/raw/master/src/visual_studio_code_flat_square.svg?sanitize=true">
 <img src="https://aleen42.github.io/badges/src/react.svg">
 <img src="https://aleen42.github.io/badges/src/typescript.svg">
 <img src="https://aleen42.github.io/badges/src/webpack.svg">
