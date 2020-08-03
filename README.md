@@ -73,26 +73,26 @@ Alternatively you can build app yourself.
 - for Mac OS
   - build
     ```
-    git clone https://github.com/JIACHENG135/Electron-React-Book-Searcher.git
+    git clone https://github.com/JIACHENG135/JCPlayer.git
     yarn install
     yarn run build
     ```
   - dev
     ```
-    git clone https://github.com/JIACHENG135/Electron-React-Book-Searcher.git
+    git clone https://github.com/JIACHENG135/JCPlayer.git
     yarn install
     yarn run dev
     ```
 - for Windows Windows version is not quite assemble...
   - build
     ```
-    git clone https://github.com/JIACHENG135/Electron-React-Book-Searcher.git
+    git clone https://github.com/JIACHENG135/JCPlayer.git
     npm install
     npm run build
     ```
   - dev
     ```
-    git clone https://github.com/JIACHENG135/Electron-React-Book-Searcher.git
+    git clone https://github.com/JIACHENG135/JCPlayer.git
     npm install
     npm run dev
     ```
