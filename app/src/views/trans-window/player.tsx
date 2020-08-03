@@ -3,6 +3,7 @@ import videojs from 'video.js'
 
 // Styles
 import 'video.js/dist/video-js.css'
+import './player.css'
 
 interface VideoPlayerProps {
   options: videojs.PlayerOptions
