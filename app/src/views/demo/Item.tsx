@@ -3,6 +3,7 @@ import './item.less'
 import { Rate } from 'antd'
 // import { Timeline, Tween } from 'react-gsap'
 import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
+import { LinkedList } from '@/core/tools/dataStructure/LinkedList'
 
 interface CarouselItemProps {
   item: CarouselItem
@@ -25,7 +26,7 @@ declare global {
   }
 }
 const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
-
+// $tools.getGlobalStore().delete('hist')
 export default class Item extends React.Component<CarouselItemProps, CarouselItemState> {
   constructor(props: CarouselItemProps) {
     super(props)
@@ -35,6 +36,19 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
   }
   handleDetail(data: any) {
     $tools.getGlobalStore().set('detail', data)
+
+    const histData: any = $tools.getGlobalStore().get('hist', new Array<any>())
+
+    const hist: LinkedList = new LinkedList()
+
+    hist.serilize(histData)
+
+    hist.getItem(data.name, data)
+
+    const res = hist.export()
+
+    console.log(res)
+    $tools.getGlobalStore().set('hist', res)
 
     const searchWin: BrowserWindow | undefined = $tools.windowList.get('SearchPage')
 

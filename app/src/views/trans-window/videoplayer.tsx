@@ -51,6 +51,7 @@ declare global {
 const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
 const win: BrowserWindow = remote.getCurrentWindow()
 const historyUpperBound = $tools.getGlobalStore().get('historyUpperBound', 24)
+const history = $tools.getGlobalStore().get('history', [])
 // const win: BrowserWindow | undefined = $tools.windowList.get('Trans')
 
 export default class VideoPlayer extends React.Component<VideoPlayerPropsInferface, VideoPlayerState> {
