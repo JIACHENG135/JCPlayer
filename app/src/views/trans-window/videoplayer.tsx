@@ -50,6 +50,7 @@ declare global {
 
 const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
 const win: BrowserWindow = remote.getCurrentWindow()
+const historyUpperBound = $tools.getGlobalStore().get('historyUpperBound', 24)
 // const win: BrowserWindow | undefined = $tools.windowList.get('Trans')
 
 export default class VideoPlayer extends React.Component<VideoPlayerPropsInferface, VideoPlayerState> {
@@ -92,6 +93,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
   render() {
     return (
       <div>
+        <div className="player-drag-area"></div>
         <video
           ref={(node: HTMLVideoElement) => (this.videoNode = node)}
           {...this.props}
