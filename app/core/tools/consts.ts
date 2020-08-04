@@ -44,7 +44,7 @@ export const DEFAULT_WINDOW_OPTIONS: BrowserWindowConstructorOptions = {
   width: 1200,
   height: 600,
   minHeight: 380,
-  minWidth: 800,
+  minWidth: 1200,
   resizable: true,
   // maximizable: true,
   webPreferences: {

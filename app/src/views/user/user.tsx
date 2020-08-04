@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import { Button, Row, Col } from 'antd'
 import './user.less'
+import BookArea from './components/book-area'
+
 interface UserProps extends PageProps, StoreProps {}
 
 declare interface UserState {}
@@ -26,6 +28,8 @@ export default class User extends React.Component<UserProps, UserState> {
   }
 
   render() {
+    const histData: any = $tools.getGlobalStore().get('hist', new Array<any>())
+    console.log(histData)
     return (
       <div className="user-profile" style={{ height: '100%' }}>
         <Row>
@@ -113,6 +117,9 @@ export default class User extends React.Component<UserProps, UserState> {
               </div>
             </Col>
           </Row>
+        </div>
+        <div className="section">
+          <BookArea items={histData}></BookArea>
         </div>
       </div>
     )

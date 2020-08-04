@@ -6,7 +6,7 @@ import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from
 import { LinkedList } from '@/core/tools/dataStructure/LinkedList'
 
 interface CarouselItemProps {
-  item: CarouselItem
+  item: any
 }
 interface CarouselItemState {
   resData: Array<any> | any
@@ -47,7 +47,6 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
 
     const res = hist.export()
 
-    console.log(res)
     $tools.getGlobalStore().set('hist', res)
 
     const searchWin: BrowserWindow | undefined = $tools.windowList.get('SearchPage')
@@ -71,22 +70,22 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
       // bookInfos: this.props.item.data.summary,
       // bookOrigin: this.props.item.data.alt,
       // bookCategory: this.props.item.data.tags,
-      alia: this.props.item.别名,
-      pres: this.props.item.导演,
-      actors: this.props.item.主演,
-      cate: this.props.item.类型,
-      region: this.props.item.地区,
-      lang: this.props.item.语言,
-      showtime: this.props.item.上映,
-      leng: this.props.item.片长,
-      update: this.props.item.更新,
-      totalfreq: this.props.item.总播放量,
-      todayfreq: this.props.item.今日播放量,
-      totalrating: this.props.item.总评分数,
-      ratingfreq: this.props.item.评分次数,
+      alia: this.props.item.别名 | this.props.item.alia,
+      pres: this.props.item.导演 | this.props.item.pres,
+      actors: this.props.item.主演 | this.props.item.actors,
+      cate: this.props.item.类型 | this.props.item.cate,
+      region: this.props.item.地区 | this.props.item.region,
+      lang: this.props.item.语言 | this.props.item.lang,
+      showtime: this.props.item.上映 | this.props.item.showtime,
+      leng: this.props.item.片长 | this.props.item.leng,
+      update: this.props.item.更新 | this.props.item.update,
+      totalfreq: this.props.item.总播放量 | this.props.item.totalfreq,
+      todayfreq: this.props.item.今日播放量 | this.props.item.todayfreq,
+      totalrating: this.props.item.总评分数 | this.props.item.totalrating,
+      ratingfreq: this.props.item.评分次数 | this.props.item.alia,
       name: this.props.item.name,
       cover: this.props.item.cover,
-      rating: this.props.item.评分,
+      rating: this.props.item.评分 | this.props.item.rating,
       address: this.props.item.address,
     }
     let nameText
@@ -101,7 +100,7 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
           <img src={carouselItem.cover} alt="" className="item-image" />
           <p className="item-text">{nameText}</p>
 
-          <Rate disabled defaultValue={parseInt(carouselItem.rating)} className="rate" />
+          <Rate disabled defaultValue={carouselItem.rating} className="rate" />
         </div>
         {/* <Timeline
           target={
