@@ -13,10 +13,18 @@
   right: 0;
   position: fixed;
   z-index: 1001;
-  height: 20px;
-  width: 20px;
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  transition: 0.3s;
+  opacity: 0;
   &:hover {
-    background-color: white;
-    transition: ease-in-out;
+    opacity: 1;
+  }
+  .ant-btn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 2px;
   }
 }

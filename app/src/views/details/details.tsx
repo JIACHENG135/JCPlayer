@@ -279,6 +279,7 @@ export default class Details extends React.Component<DetailsProps, DetailsState>
         className="book-detail-container"
         style={{
           backgroundImage: 'url(' + bimage + ')',
+          borderRadius: 5,
         }}
       >
         <Layout>

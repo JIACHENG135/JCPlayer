@@ -4,7 +4,7 @@ import { withStore } from '@/src/components'
 
 import axios from 'axios'
 import { Layout, Input, Row, Col, Radio, Button } from 'antd'
-import BookRow from './components/book-row'
+
 import ItemRow from './components/item-row'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
@@ -66,7 +66,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   // canva = document.createElement('CANVAS')
 
   componentDidMount() {
-    // win.on('resize', this.throttle(this.onResize, 200).bind(this, win))
+    win.on('resize', this.throttle(this.onResize, 200).bind(this, win))
     $tools.getGlobalStore().set('renderItems', true)
     const assets = $tools.ASSETS_PATH
     const bgStyle =
@@ -155,6 +155,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   }
 
   handleNextPre(url: string) {
+    $tools.getGlobalStore().set('renderItems', true)
     try {
       this.setState({
         resData: {

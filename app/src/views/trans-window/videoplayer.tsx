@@ -1,6 +1,8 @@
 import * as React from 'react'
 import videojs, { VideoJsPlayer, VideoJsPlayerPluginOptions } from 'video.js'
 import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
+import { Button } from 'antd'
+import { CloseOutlined } from '@ant-design/icons'
 import './videoplayer.less'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
@@ -101,9 +103,12 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
     remote.getCurrentWindow().close()
   }
   render() {
+    const closeButton = <Button type="primary" danger icon={<CloseOutlined />} />
     return (
       <PerfectScrollbar>
-        <div className="close-area" onClick={this.close.bind(this)}></div>
+        <div className="close-area" onClick={this.close.bind(this)}>
+          {process.platform == 'win32' ? closeButton : ''}
+        </div>
         <div className="player-drag-area"></div>
         <video
           ref={(node: HTMLVideoElement) => (this.videoNode = node)}

@@ -9,6 +9,7 @@ const routes: RouteConfig[] = [
       title: 'Details',
       // titleBarStyle: 'customButtonsOnHover',
       transparent: process.platform == 'darwin' ? true : false,
+      // transparent: true,
       resizable: true,
     },
     createConfig: {
