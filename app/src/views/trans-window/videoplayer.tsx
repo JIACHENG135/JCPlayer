@@ -50,8 +50,7 @@ declare global {
 
 const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
 const win: BrowserWindow = remote.getCurrentWindow()
-const historyUpperBound = $tools.getGlobalStore().get('historyUpperBound', 24)
-const history = $tools.getGlobalStore().get('history', [])
+const curUrl = $tools.getGlobalStore().get('play-url')
 // const win: BrowserWindow | undefined = $tools.windowList.get('Trans')
 
 export default class VideoPlayer extends React.Component<VideoPlayerPropsInferface, VideoPlayerState> {
@@ -89,13 +88,21 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
     videojs('my-video', {}).ready(function() {
       player = this
       win.on('resize', throttle(onresize, 200).bind(this, win, player))
+      const lastTime = $tools.getGlobalStore().get(curUrl, undefined)
+      if (lastTime != undefined) {
+        this.currentTime(lastTime)
+      }
       this.play()
     })
+  }
+  close() {
+    $tools.getGlobalStore().set(curUrl, videojs('my-video').currentTime())
+    remote.getCurrentWindow().close()
   }
   render() {
     return (
       <div>
-        <div className="player-drag-area"></div>
+        <div className="close-area" onClick={this.close.bind(this)}></div>
         <video
           ref={(node: HTMLVideoElement) => (this.videoNode = node)}
           {...this.props}
