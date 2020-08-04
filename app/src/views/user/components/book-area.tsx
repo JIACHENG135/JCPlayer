@@ -54,12 +54,12 @@ export default class BookArea extends React.Component<BookAreaItemProps> {
     win.on('resize', this.throttle(this.onResize, 200).bind(this, win))
   }
   render() {
-    const { items } = this.props
+    let { items } = this.props
     const { cols } = this.state
     const bookblock = new Array<any>()
 
     let bookArray = new Array<any>()
-
+    items = items.reverse()
     for (const book of items) {
       if (bookArray.length % cols == 0) {
         bookblock.push(<BookRow items={bookArray} grid={cols}></BookRow>)
