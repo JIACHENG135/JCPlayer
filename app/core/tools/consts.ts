@@ -59,7 +59,7 @@ export const DEFAULT_WINDOW_OPTIONS: BrowserWindowConstructorOptions = {
   // icon: APP_ICON,
   // minWidth: 200,
   // minHeight: 200,
-  titleBarStyle: 'hidden', // 隐藏标题栏, 但显示窗口控制按钮
+  // titleBarStyle: 'hidden', // 隐藏标题栏, 但显示窗口控制按钮
   // frame: process.platform === 'darwin' ? true : false, // 无边框窗口
   frame: process.platform == 'darwin' ? true : false, // 无边框窗口
   // skipTaskbar: false, // 是否在任务栏中隐藏窗口

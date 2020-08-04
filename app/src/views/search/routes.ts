@@ -1,3 +1,5 @@
+import { Hidden } from '@material-ui/core'
+
 const routes: RouteConfig[] = [
   {
     key: 'SearchPage',
@@ -8,6 +10,7 @@ const routes: RouteConfig[] = [
     windowOptions: {
       resizable: true,
       vibrancy: process.platform == 'darwin' ? 'light' : 'sidebar',
+      titleBarStyle: 'hidden',
     },
   },
   {

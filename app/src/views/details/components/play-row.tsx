@@ -29,7 +29,7 @@ export default class PlayRow extends React.Component<PlayRowProps> {
           minHeight: 200,
           width: 1500,
           height: 843.75,
-          // titleBarStyle: 'customButtonsOnHover',
+          titleBarStyle: undefined,
           vibrancy: process.platform == 'darwin' ? 'light' : 'light',
           resizable: true,
           frame: false,

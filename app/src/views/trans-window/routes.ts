@@ -4,7 +4,7 @@ const routes: RouteConfig[] = [
     path: '/trans',
     windowOptions: {
       title: 'transparent window',
-      frame: true,
+      frame: false,
       transparent: process.platform == 'darwin' ? true : false,
     },
     createConfig: {

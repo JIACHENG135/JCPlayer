@@ -107,7 +107,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
     return (
       <PerfectScrollbar>
         <div className="close-area" onClick={this.close.bind(this)}>
-          {process.platform == 'win32' ? closeButton : ''}
+          {closeButton}
         </div>
         <div className="player-drag-area"></div>
         <video

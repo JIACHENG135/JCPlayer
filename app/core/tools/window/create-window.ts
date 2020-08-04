@@ -168,6 +168,9 @@ export function createWindow(key: RouterKey, options: CreateWindowOptions = {}):
       if (createConfig.saveWindowBounds && win) {
         $tools.settings.windowBounds.set(key, win.getBounds())
       }
+
+      const code = '$tools.getGlobalStore().set(curUrl, videojs("my-video").currentTime())'
+      win.webContents.executeJavaScript(code)
       windowList.delete(key)
       log.info(`Window <${key}:${win.id}> is closed.`)
     })
