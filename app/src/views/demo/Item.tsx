@@ -62,27 +62,23 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
       })
   }
   render() {
+    console.log(this.props.item)
     const carouselItem = {
-      // bookAuthor: this.props.item.data.author,
-      // bookTitle: this.props.item.data.title,
-      // bookRating: Math.floor(this.props.item.data.rating.average / 2),
-      // bookPic: this.props.item.data.image,
-      // bookInfos: this.props.item.data.summary,
-      // bookOrigin: this.props.item.data.alt,
-      // bookCategory: this.props.item.data.tags,
-      alia: this.props.item.别名 | this.props.item.alia,
-      pres: this.props.item.导演 | this.props.item.pres,
-      actors: this.props.item.主演 | this.props.item.actors,
-      cate: this.props.item.类型 | this.props.item.cate,
-      region: this.props.item.地区 | this.props.item.region,
-      lang: this.props.item.语言 | this.props.item.lang,
-      showtime: this.props.item.上映 | this.props.item.showtime,
-      leng: this.props.item.片长 | this.props.item.leng,
-      update: this.props.item.更新 | this.props.item.update,
-      totalfreq: this.props.item.总播放量 | this.props.item.totalfreq,
-      todayfreq: this.props.item.今日播放量 | this.props.item.todayfreq,
-      totalrating: this.props.item.总评分数 | this.props.item.totalrating,
-      ratingfreq: this.props.item.评分次数 | this.props.item.alia,
+      alia: this.props.item.别名 != undefined ? this.props.item.别名 : this.props.item.alia,
+      pres: this.props.item.导演 != undefined ? this.props.item.导演 : this.props.item.pres,
+      actors: this.props.item.主演 != undefined ? this.props.item.主演 : this.props.item.actors,
+      cate: this.props.item.类型 != undefined ? this.props.item.类型 : this.props.item.cate,
+      region: this.props.item.地区 != undefined ? this.props.item.地区 : this.props.item.region,
+      lang: this.props.item.语言 != undefined ? this.props.item.语言 : this.props.item.lang,
+      showtime: this.props.item.上映 != undefined ? this.props.item.上映 : this.props.item.showtime,
+      leng: this.props.item.片长 != undefined ? this.props.item.片长 : this.props.item.leng,
+      update: this.props.item.更新 != undefined ? this.props.item.更新 : this.props.item.update,
+      totalfreq: this.props.item.总播放量 != undefined ? this.props.item.总播放量 : this.props.item.totalfreq,
+      todayfreq:
+        this.props.item.今日播放量 != undefined ? this.props.item.今日播放量 : this.props.item.todayfreq,
+      totalrating:
+        this.props.item.总评分数 != undefined ? this.props.item.总评分数 : this.props.item.totalrating,
+      ratingfreq: this.props.item.评分次数 != undefined ? this.props.item.评分次数 : this.props.item.alia,
       name: this.props.item.name,
       cover: this.props.item.cover,
       rating: this.props.item.评分 | this.props.item.rating,

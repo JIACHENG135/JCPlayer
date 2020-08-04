@@ -78,6 +78,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
     const bound = win.getSize()
     player.dimensions(bound[0], bound[1])
   }
+
   sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms))
   }
