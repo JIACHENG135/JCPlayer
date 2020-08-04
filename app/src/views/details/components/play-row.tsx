@@ -43,10 +43,16 @@ export default class PlayRow extends React.Component<PlayRowProps> {
   render() {
     const { cols, items, start } = this.props
     const colArea = items.map((add: string, ind: number) => {
+      const exist = $tools.getGlobalStore().get(add, undefined)
       return (
         <Col key={uuidv4()} span={cols} className="playlist">
           <span key={uuidv4()} onClick={this.play.bind(this, add)}>
-            <Button key={uuidv4()} type="primary" icon={<PlayCircleOutlined></PlayCircleOutlined>}></Button>
+            <Button
+              key={uuidv4()}
+              type="primary"
+              icon={<PlayCircleOutlined></PlayCircleOutlined>}
+              style={{ opacity: exist ? 0.5 : 1 }}
+            ></Button>
             <span key={uuidv4()} className="ep-num" style={{ paddingLeft: '5px' }}>
               第{start + ind + 1}集
             </span>

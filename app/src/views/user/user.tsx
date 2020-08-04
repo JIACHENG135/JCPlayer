@@ -6,30 +6,58 @@ import BookArea from './components/book-area'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 interface UserProps extends PageProps, StoreProps {}
 
-declare interface UserState {}
+declare interface UserState {
+  createWindowLoading: boolean
+}
 
 /**
  * DemoProps 是组件的 props 类型声明
  * DemoState 是组件的 state 类型声明
  * props 和 state 的默认值需要单独声明
  */
-
+const { ipcRenderer } = window.require('electron')
 export default class User extends React.Component<UserProps, UserState> {
   // state 初始化
-  state: UserState = {}
+  state: UserState = {
+    createWindowLoading: false,
+  }
 
   // 构造函数
   constructor(props: UserProps) {
     super(props)
   }
-
+  componentDidMount() {
+    $tools.getGlobalStore().set('renderItems', true)
+  }
+  // componentWillUnmount() {
+  //   ipcRenderer.on('Search Page Speed Up', () => {
+  //     $tools.getGlobalStore().set('renderItems', false)
+  //     this.setState(() => ({
+  //       createWindowLoading: true,
+  //     }))
+  //   })
+  //   ipcRenderer.on('Search Page Slow Down', () => {
+  //     $tools.getGlobalStore().set('renderItems', false)
+  //     this.setState(() => ({
+  //       createWindowLoading: false,
+  //     }))
+  //   })
+  // }
   sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms))
   }
 
   render() {
+    const theme = $tools.getGlobalStore().get('MyTheme', 1)
+    const { createWindowLoading } = this.state
+    const domain =
+      process.platform == 'darwin'
+        ? $tools.ASSETS_PATH + '/themes/'
+        : 'https://jiacheng135.github.io/Theme/assets/themes/'
+    const bimage = createWindowLoading
+      ? domain + theme + '/Fluid-10s-3000px.svg'
+      : domain + theme + '/Fluid-10s-3000px.png'
     const histData: any = $tools.getGlobalStore().get('hist', new Array<any>())
-    console.log(histData)
     return (
       <PerfectScrollbar>
         <div className="user-profile" style={{ height: '100%' }}>

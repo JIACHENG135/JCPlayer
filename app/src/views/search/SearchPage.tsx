@@ -5,6 +5,7 @@ import { withStore } from '@/src/components'
 import axios from 'axios'
 import { Layout, Input, Row, Col, Radio, Button } from 'antd'
 import BookRow from './components/book-row'
+import ItemRow from './components/item-row'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
 import './search.less'
@@ -65,7 +66,8 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   // canva = document.createElement('CANVAS')
 
   componentDidMount() {
-    win.on('resize', this.throttle(this.onResize, 200).bind(this, win))
+    // win.on('resize', this.throttle(this.onResize, 200).bind(this, win))
+    $tools.getGlobalStore().set('renderItems', true)
     const assets = $tools.ASSETS_PATH
     const bgStyle =
       process.platform == 'darwin'
@@ -78,11 +80,13 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
 
     $tools.getGlobalStore().set('globalBg', key)
     ipcRenderer.on('Search Page Speed Up', () => {
+      $tools.getGlobalStore().set('renderItems', false)
       this.setState(() => ({
         createWindowLoading: true,
       }))
     })
     ipcRenderer.on('Search Page Slow Down', () => {
+      $tools.getGlobalStore().set('renderItems', false)
       this.setState(() => ({
         createWindowLoading: false,
       }))
@@ -132,6 +136,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   }
   handlesearch(value: any) {
     $tools.getGlobalStore().set('searchValue', value)
+    $tools.getGlobalStore().set('renderItems', true)
     try {
       this.setState({
         resData: {
@@ -190,7 +195,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
       // currentPage = this.state.currentPage
       for (const book of results) {
         if (bookArray.length % this.state.cols == 0) {
-          bookblock.push(<BookRow items={bookArray} grid={this.state.cols}></BookRow>)
+          bookblock.push(<ItemRow items={bookArray} grid={this.state.cols}></ItemRow>)
 
           bookArray = new Array<any>()
         }
@@ -198,7 +203,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
         // index += 1
       }
       if (bookArray.length > 0) {
-        bookblock.push(<BookRow items={bookArray} grid={this.state.cols}></BookRow>)
+        bookblock.push(<ItemRow items={bookArray} grid={this.state.cols}></ItemRow>)
       }
       bookArea = bookblock.map((item, index) => {
         return <div key={index}>{item}</div>

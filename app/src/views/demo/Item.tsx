@@ -50,8 +50,10 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
     $tools.getGlobalStore().set('hist', res)
 
     const searchWin: BrowserWindow | undefined = $tools.windowList.get('SearchPage')
+    // const userWin: BrowserWindow | undefined = $tools.windowList.get('User')
 
     searchWin?.webContents.send('Search Page Speed Up')
+    // userWin?.webContents.send('Search Page Speed Up')
     $tools
       .createWindow('Details', {
         windowOptions: { title: 'Details', transparent: false, resizable: false },
@@ -59,10 +61,11 @@ export default class Item extends React.Component<CarouselItemProps, CarouselIte
       })
       .then(() => {
         $tools.windowList.get('SearchPage')?.webContents.send('Search Page Slow Down')
+        // $tools.windowList.get('User')?.webContents.send('Search Page Slow Down')
       })
   }
   render() {
-    console.log(this.props.item)
+    // console.log(this.props.item)
     const carouselItem = {
       alia: this.props.item.别名 != undefined ? this.props.item.别名 : this.props.item.alia,
       pres: this.props.item.导演 != undefined ? this.props.item.导演 : this.props.item.pres,

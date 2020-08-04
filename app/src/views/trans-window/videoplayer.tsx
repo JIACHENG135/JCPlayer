@@ -2,6 +2,7 @@ import * as React from 'react'
 import videojs, { VideoJsPlayer, VideoJsPlayerPluginOptions } from 'video.js'
 import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
 import './videoplayer.less'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 interface VideoPlayerPropsInferface {
   aspectRatio?: string
@@ -101,8 +102,9 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
   }
   render() {
     return (
-      <div>
+      <PerfectScrollbar>
         <div className="close-area" onClick={this.close.bind(this)}></div>
+        <div className="player-drag-area"></div>
         <video
           ref={(node: HTMLVideoElement) => (this.videoNode = node)}
           {...this.props}
@@ -111,7 +113,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
         >
           <source src={this.props.src}></source>
         </video>
-      </div>
+      </PerfectScrollbar>
     )
   }
 }

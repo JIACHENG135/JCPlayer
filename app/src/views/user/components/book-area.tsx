@@ -1,4 +1,4 @@
-import BookRow from '../../search/components/book-row'
+import ItemRow from '../../search/components/item-row'
 import React from 'react'
 
 import 'react-multi-carousel/lib/styles.css'
@@ -51,6 +51,7 @@ export default class BookArea extends React.Component<BookAreaItemProps> {
   }
   componentDidMount() {
     const win: BrowserWindow = remote.getCurrentWindow()
+
     win.on('resize', this.throttle(this.onResize, 200).bind(this, win))
   }
   render() {
@@ -62,14 +63,14 @@ export default class BookArea extends React.Component<BookAreaItemProps> {
     items = items.reverse()
     for (const book of items) {
       if (bookArray.length % cols == 0) {
-        bookblock.push(<BookRow items={bookArray} grid={cols}></BookRow>)
+        bookblock.push(<ItemRow items={bookArray} grid={cols}></ItemRow>)
 
         bookArray = new Array<any>()
       }
       bookArray.push(book)
     }
     if (bookArray.length > 0) {
-      bookblock.push(<BookRow items={bookArray} grid={cols}></BookRow>)
+      bookblock.push(<ItemRow items={bookArray} grid={cols}></ItemRow>)
     }
     const bookcont = bookblock.map((item, index) => {
       return <div key={index}>{item}</div>

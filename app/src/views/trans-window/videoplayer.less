@@ -1,19 +1,22 @@
 .player-drag-area {
   position: fixed;
-  height: 800px;
-  z-index: 1001;
-  -webkit-app-region: drag;
+  height: 200px;
+  width: 70%;
   left: 0;
   top: 0;
+
+  z-index: 1001;
+  -webkit-app-region: drag;
 }
 .close-area {
   top: 0;
   right: 0;
   position: fixed;
   z-index: 1001;
-  height: 10px;
-  width: 10px;
+  height: 20px;
+  width: 20px;
   &:hover {
     background-color: white;
+    transition: ease-in-out;
   }
 }
