@@ -7,14 +7,14 @@ import { v4 as uuidv4 } from 'uuid'
 import Grow from '@material-ui/core/Grow'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 // import VideoPlayer from './player'
-import { BrowserWindow } from 'electron'
+import { BrowserWindow, IpcRendererEvent } from 'electron'
 // import ReactLoading from 'react-loading'
 
 import PlayAccord from './play-accord'
 
 // import './login.module.less'
 
-const { remote } = window.require('electron')
+const { remote, ipcRenderer } = window.require('electron')
 const win: BrowserWindow = remote.getCurrentWindow()
 // const win: BrowserWindow | undefined = $tools.windowList.get('Trans')
 let winSize: Array<number>
@@ -28,6 +28,7 @@ interface PlayListProps {
   cover: string
   items: Array<any>
   name: string
+  curUrl: string
 }
 
 declare interface PlayListState {}
@@ -59,14 +60,15 @@ export default class PlayList extends React.Component<PlayListProps, PlayListSta
   sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms))
   }
-
+  componentDidMount() {}
   render() {
-    const { cover, items, name } = this.props
+    const { cover, items, name, curUrl } = this.props
+
     const table = items.map((item: number, index: number) => {
       return (
         <Grow key={uuidv4()} in={true} timeout={300 * index}>
           <div key={uuidv4()} className="grow-row">
-            <PlayAccord name={name} item={item} cover={cover} index={index + 1}></PlayAccord>
+            <PlayAccord name={name} item={item} cover={cover} index={index + 1} url={curUrl}></PlayAccord>
           </div>
         </Grow>
       )

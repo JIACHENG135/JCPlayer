@@ -1,27 +1,16 @@
 import React from 'react'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
-
 import SpeedDial from '@material-ui/lab/SpeedDial'
 import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon'
 import SpeedDialAction from '@material-ui/lab/SpeedDialAction'
 import SaveIcon from '@material-ui/icons/Save'
 import ShareIcon from '@material-ui/icons/Share'
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled'
 import FavoriteIcon from '@material-ui/icons/Favorite'
-
+import { green } from '@material-ui/core/colors'
+import CheckIcon from '@material-ui/icons/Check'
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      transform: 'translateZ(0px)',
-      flexGrow: 1,
-    },
-    exampleWrapper: {
-      position: 'relative',
-      marginTop: theme.spacing(1),
-      height: 380,
-    },
-    radioGroup: {
-      margin: theme.spacing(1, 0),
-    },
     speedDial: {
       position: 'absolute',
       '&.MuiSpeedDial-directionUp, &.MuiSpeedDial-directionLeft': {
@@ -33,19 +22,59 @@ const useStyles = makeStyles((theme: Theme) =>
         left: theme.spacing(2),
       },
     },
+    root: {
+      width: '100%',
+    },
+    heading: {
+      fontSize: theme.typography.pxToRem(15),
+      fontWeight: theme.typography.fontWeightRegular,
+    },
+    buttonSuccess: {
+      backgroundColor: green[500],
+      '&:hover': {
+        backgroundColor: green[700],
+      },
+    },
+    buttonPlay: {
+      backgroundColor: green[500],
+      '&:hover': {
+        backgroundColor: green[700],
+      },
+      position: 'absolute',
+      bottom: theme.spacing(2),
+      left: theme.spacing(2),
+    },
+    fabIcon: {},
+    playIcon: {
+      position: 'absolute',
+      bottom: theme.spacing(2),
+      left: theme.spacing(2),
+    },
+    fabProgress: {
+      color: green[500],
+      position: 'absolute',
+    },
+    playProgress: {
+      color: green[500],
+      position: 'relative',
+    },
+    wrapper: {
+      margin: theme.spacing(1),
+      position: 'relative',
+    },
   })
 )
+const { remote, ipcRenderer } = window.require('electron')
 
-const actions = [
-  { icon: <SaveIcon />, name: 'Save' },
-  { icon: <ShareIcon />, name: 'Share' },
-  { icon: <FavoriteIcon />, name: 'Like' },
-]
-
-export default function SpeedDials() {
+interface SpeedDialsProps {
+  item: any
+  index: number
+  name: string
+}
+export default function SpeedDials(props: SpeedDialsProps) {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
-
+  const { name, item, index } = props
   const handleClose = () => {
     setOpen(false)
   }
@@ -53,7 +82,43 @@ export default function SpeedDials() {
   const handleOpen = () => {
     setOpen(true)
   }
+  const n = new remote.Notification({
+    icon: $tools.APP_ICON,
+    title: 'Collected successfully',
+    body: '成功收藏' + name + '第' + index + '集' + '到个人收藏',
+    sound: 'Purr',
+  })
+  const [loading, setLoading] = React.useState(false)
+  const [success, setSuccess] = React.useState(false)
+  const handleCollectClick = () => {
+    if (!loading) {
+      setSuccess(false)
+      setLoading(true)
+      setTimeout(() => {
+        setSuccess(true)
+        setLoading(false)
+        n.show()
+      }, 2000)
+    }
+  }
 
+  const handlePlay = () => {
+    const win = remote.getCurrentWindow()
+    win.webContents.send('Play this url', item)
+  }
+  const check = <FavoriteIcon style={{ color: success ? 'red' : '' }} />
+
+  const save = <SaveIcon onClick={handleCollectClick} className={classes.fabIcon} />
+
+  const actions = [
+    {
+      icon: success ? check : save,
+      name: success ? 'Saved' : 'Save',
+    },
+    { icon: <PlayCircleFilledIcon onClick={handlePlay} />, name: 'Play' },
+    { icon: <ShareIcon />, name: 'Share' },
+    // { icon: check, name: 'Like' },
+  ]
   return (
     <SpeedDial
       ariaLabel="SpeedDial example"

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import videojs, { VideoJsPlayer, VideoJsPlayerPluginOptions } from 'video.js'
-import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
+import { IpcRenderer, IpcRendererEvent, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
 import { Button } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import './videoplayer.less'
@@ -37,7 +37,10 @@ interface VideoPlayerPropsInferface {
   width?: number
 }
 
-interface VideoPlayerState {}
+interface VideoPlayerState {
+  player: any
+  curUrl: string
+}
 declare global {
   interface Window {
     require: (
@@ -66,6 +69,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
 
   state: VideoPlayerState = {
     player: undefined,
+    curUrl: $tools.getGlobalStore().get('play-url', ''),
   }
   throttle(fn: Function, rateTime: number) {
     let prev = Date.now() - rateTime
@@ -98,6 +102,13 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
       }
       this.play()
     })
+    ipcRenderer.on('Play this url', (event: IpcRendererEvent, msg: string) => {
+      remote.getCurrentWindow().webContents.send('Current url update', msg)
+      videojs('my-video').src(msg)
+      videojs('my-video').ready(function() {
+        this.play()
+      })
+    })
   }
   close() {
     $tools.getGlobalStore().set(curUrl, videojs('my-video').currentTime())
@@ -107,6 +118,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
     const closeButton = <Button type="primary" danger icon={<CloseOutlined />} />
     const data = $tools.getGlobalStore().get('detail', Array<any>())
     const { cover, name, address } = data
+    const { curUrl } = this.state
     return (
       <PerfectScrollbar>
         <div className="close-area" onClick={this.close.bind(this)}>
@@ -114,7 +126,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
         </div>
         <div className="player-drag-area"></div>
         <div className="play-list-table">
-          <PlayList cover={cover} name={name} items={address}></PlayList>
+          <PlayList cover={cover} name={name} items={address} curUrl={curUrl}></PlayList>
         </div>
         <video
           ref={(node: HTMLVideoElement) => (this.videoNode = node)}

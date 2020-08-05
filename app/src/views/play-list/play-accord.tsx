@@ -6,110 +6,96 @@ import AccordionDetails from '@material-ui/core/AccordionDetails'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { Row, Col } from 'antd'
-import Fab from '@material-ui/core/Fab'
-import CheckIcon from '@material-ui/icons/Check'
-import SaveIcon from '@material-ui/icons/Save'
+
 import { green } from '@material-ui/core/colors'
-import CircularProgress from '@material-ui/core/CircularProgress'
+
 import SpeedDial from './speed-dials'
 import './play-accord.css'
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-    },
-    heading: {
-      fontSize: theme.typography.pxToRem(15),
-      fontWeight: theme.typography.fontWeightRegular,
-    },
-    buttonSuccess: {
-      backgroundColor: green[500],
-      '&:hover': {
-        backgroundColor: green[700],
-      },
-      position: 'absolute',
-      bottom: theme.spacing(2),
-      right: theme.spacing(2),
-    },
-    buttonPlay: {
-      backgroundColor: green[500],
-      '&:hover': {
-        backgroundColor: green[700],
-      },
-      position: 'absolute',
-      bottom: theme.spacing(2),
-      left: theme.spacing(2),
-    },
-    fabIcon: {
-      position: 'absolute',
-      bottom: theme.spacing(2),
-      right: theme.spacing(2),
-    },
-    playIcon: {
-      position: 'absolute',
-      bottom: theme.spacing(2),
-      left: theme.spacing(2),
-    },
-    fabProgress: {
-      color: green[500],
-      position: 'absolute',
-    },
-    playProgress: {
-      color: green[500],
-      position: 'absolute',
-    },
-    wrapper: {
-      margin: theme.spacing(1),
-      position: 'relative',
-    },
-  })
-)
+import { ipcRenderer, IpcRendererEvent } from 'electron'
+
 interface PlayAccordProps {
   cover: string
   item: any
   index: number
   name: string
+  url: string
 }
-const { remote } = window.require('electron')
+
 export default function PlayAccord(props: PlayAccordProps) {
-  const classes = useStyles()
-  const { name, cover, item, index } = props
-  const [loading, setLoading] = React.useState(false)
-  const [play, setPlay] = React.useState(false)
-  const [success, setSuccess] = React.useState(false)
-  const n = new remote.Notification({
-    icon: $tools.APP_ICON,
-    title: 'Collected successfully',
-    body: '成功收藏' + name + '第' + index + '集' + '到个人收藏',
-    sound: 'Purr',
+  const { name, cover, item, index, url } = props
+
+  const [realUrl, setRealUrl] = React.useState(url)
+  ipcRenderer.on('Current url update', (event: IpcRendererEvent, msg: string) => {
+    setRealUrl(msg)
   })
-  const handleCollectClick = () => {
-    if (!loading) {
-      setSuccess(false)
-      setLoading(true)
-      setTimeout(() => {
-        setSuccess(true)
-        setLoading(false)
-        n.show()
-      }, 2000)
-    }
-  }
-  const handlePlayClick = () => {
-    if (!play) {
-      setSuccess(false)
-      setPlay(true)
-      setTimeout(() => {
-        setSuccess(true)
-        setPlay(false)
-        n.show()
-      }, 2000)
-    }
-  }
+  const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+      root: {
+        width: '100%',
+      },
+      played: {
+        position: 'fixed',
+        height: '80%',
+        width: '70%',
+        backgroundColor: 'red',
+        opacity: 0.8,
+      },
+      heading: {
+        fontSize: theme.typography.pxToRem(15),
+        fontWeight: theme.typography.fontWeightRegular,
+      },
+      buttonSuccess: {
+        backgroundColor: green[500],
+        '&:hover': {
+          backgroundColor: green[700],
+        },
+        position: 'absolute',
+        bottom: theme.spacing(2),
+        right: theme.spacing(2),
+      },
+      buttonPlay: {
+        backgroundColor: green[500],
+        '&:hover': {
+          backgroundColor: green[700],
+        },
+        position: 'absolute',
+        bottom: theme.spacing(2),
+        left: theme.spacing(2),
+      },
+      fabIcon: {
+        position: 'absolute',
+        bottom: theme.spacing(2),
+        right: theme.spacing(2),
+      },
+      playIcon: {
+        position: 'absolute',
+        bottom: theme.spacing(2),
+        left: theme.spacing(2),
+      },
+      fabProgress: {
+        color: green[500],
+        position: 'absolute',
+      },
+      playProgress: {
+        color: green[500],
+        position: 'absolute',
+      },
+      wrapper: {
+        margin: theme.spacing(1),
+        position: 'relative',
+      },
+    })
+  )
+  const classes = useStyles()
+
   return (
     <div className={classes.root}>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-          <Typography className={classes.heading}>{'第' + index + '集'}</Typography>
+          <Typography className={classes.heading}>
+            {'第' + index + '集'}
+            {item == realUrl ? '正在播放' : ''}
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Row>
@@ -121,7 +107,7 @@ export default function PlayAccord(props: PlayAccordProps) {
                 <p>{name}</p>
                 <p>{'第' + index + '集'}</p>
 
-                <SpeedDial></SpeedDial>
+                <SpeedDial name={name} item={item} index={index}></SpeedDial>
               </div>
             </Col>
           </Row>
