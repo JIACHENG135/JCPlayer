@@ -5,6 +5,7 @@ import { Button } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import './videoplayer.less'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import PlayList from '../play-list/play-list'
 
 interface VideoPlayerPropsInferface {
   aspectRatio?: string
@@ -104,12 +105,17 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
   }
   render() {
     const closeButton = <Button type="primary" danger icon={<CloseOutlined />} />
+    const data = $tools.getGlobalStore().get('detail', Array<any>())
+    const { cover, name, address } = data
     return (
       <PerfectScrollbar>
         <div className="close-area" onClick={this.close.bind(this)}>
           {closeButton}
         </div>
         <div className="player-drag-area"></div>
+        <div className="play-list-table">
+          <PlayList cover={cover} name={name} items={address}></PlayList>
+        </div>
         <video
           ref={(node: HTMLVideoElement) => (this.videoNode = node)}
           {...this.props}

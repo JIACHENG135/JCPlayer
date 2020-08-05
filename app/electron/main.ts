@@ -2,7 +2,7 @@ import { app, Tray, BrowserWindow, globalShortcut, clipboard, screen, ipcMain } 
 
 import { creatAppTray } from './tray'
 import Store from 'electron-store'
-import less from 'less'
+import less, { options } from 'less'
 
 $tools.log.info(`Application <${$tools.APP_NAME}> launched.`)
 
@@ -47,6 +47,21 @@ app.on('ready', () => {
     $tools.setTheme(6)
     $tools.windowList.get('SearchPage')?.webContents.reload()
   })
+
+  // globalShortcut.register('CommandOrControl+p', () => {
+  //   const win = $tools.windowList.get('Trans')
+  //   const bound = win?.getBounds()
+  //   let x, y, width, height
+  //   if (bound) {
+  //     x = bound.x
+  //     y = bound.y
+  //     width = bound.width
+  //     height = bound.height
+  //     $tools.createWindow('PlayList', {
+  //       windowOptions: { x: x + width, y: y, maxHeight: height, width: 300 },
+  //     })
+  //   }
+  // })
 
   $tools.createWindow('SearchPage')
 })

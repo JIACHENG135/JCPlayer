@@ -30,5 +30,7 @@ export const Prepdf = import('./views/prepdf/Prepdf')
 
 export const Fless = import('./views/fless-trans/fless-trans')
 
+export const PlayList = import('./views/play-list/play-list')
+
 // 同步引用，注意这不会出发 beforeRouter
 export { default as AlertModal } from './views/modals/alert-modal'
