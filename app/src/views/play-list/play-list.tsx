@@ -66,7 +66,7 @@ export default class PlayList extends React.Component<PlayListProps, PlayListSta
       return (
         <Grow key={uuidv4()} in={true} timeout={300 * index}>
           <div key={uuidv4()} className="grow-row">
-            <PlayAccord name={name} item={item} cover={cover} index={index}></PlayAccord>
+            <PlayAccord name={name} item={item} cover={cover} index={index + 1}></PlayAccord>
           </div>
         </Grow>
       )
