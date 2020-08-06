@@ -62,6 +62,18 @@ For Mac
 ### Theme 6
 ![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme7.png)
 
+## On Windows
+### History 1
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/History-win-1.jpg)
+### Play list 1
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/PlayList-win-1.jpg)
+### Play list 2
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/PlayList-win-2.jpg)
+### Play list 3
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/PlayList-win-3.jpg)
+### Play list 4
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/PlayList-win-4.jpg)
+
 
 
 
