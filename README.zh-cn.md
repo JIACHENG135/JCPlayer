@@ -72,16 +72,17 @@ npm run dev
 ### 主题七
 ![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/Theme7.png)
 在Windows上
-### 关于
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20About.png)
-### 电影详情
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Search.png)
-### 搜索结果
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Detail.png)
-### 用户信息
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20UserProfile.png)
-### 电影播放
-![img](https://github.com/JIACHENG135/Electron-React-Book-Searcher/blob/master/assets/demo-jpg/Mac%20-%20Preview%20PDF.png)
+## On Windows
+### History 1
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/History-win-1.jpg)
+### Play list 1
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/PlayList-win-1.jpg)
+### Play list 2
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/PlayList-win-2.jpg)
+### Play list 3
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/PlayList-win-3.jpg)
+### Play list 4
+![img](https://github.com/JIACHENG135/JCPlayer/blob/master/assets/demo-jpg/PlayList-win-4.jpg)
 
 ## 切换主题快捷键
 - OSX: <kbd>Cmd</kbd> <kbd>C</kbd> <kbd>1</kbd> 
