@@ -89,6 +89,9 @@ npm run dev
 - Windows: <kbd>Ctrl</kbd> <kbd>C</kbd> <kbd>1</kbd> 
 - 数字1-5和7一共六个主题
 
+## 招募开发者
+还原提交PR
+
 ## 打包应用
 
 编辑 [builder.config.ts](./build/builder.config.ts) 配置文件.
