@@ -79,7 +79,7 @@ For Mac
 
 ## Install
 
-Check [Latest Releases](https://github.com/JIACHENG135/Electron-Vue-Book-Searcher/releases/tag/LibGen.0.0.1) page for recent version of packaged app for MacOS, Windows or Linux.
+Check [Latest Releases](https://github.com/JIACHENG135/JCPlayer/releases) page for recent version of packaged app for MacOS, Windows or Linux.
 
 Alternatively you can build app yourself.
 
