@@ -3,7 +3,7 @@ import * as React from 'react'
 import './fless-trans.less'
 
 // import VideoPlayer from './player'
-import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
+import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain, IpcRendererEvent } from 'electron'
 // import ReactLoading from 'react-loading'
 
 // import { Button, Input, Spin, Card } from 'antd'

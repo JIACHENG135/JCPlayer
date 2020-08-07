@@ -10,7 +10,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 
 import './search.less'
 
-import { BrowserWindow } from 'electron'
+import { BrowserWindow, IpcRendererEvent } from 'electron'
 
 // const themePath = $tools.asAssetsPath('/themes/')
 
@@ -90,6 +90,9 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
       this.setState(() => ({
         createWindowLoading: false,
       }))
+    })
+    ipcRenderer.on('CheckUpdateResult', (event: IpcRendererEvent, msg: string) => {
+      console.log(msg)
     })
   }
   setInputValue(e: any) {

@@ -22,7 +22,22 @@ const config: Configuration = {
   buildVersion,
   appId,
   files: ['assets', 'dist', 'package.json'],
-
+  publish: [
+    {
+      provider: 'generic',
+      url: 'https://ssjh.s3-ap-northeast-1.amazonaws.com/download',
+    },
+  ],
+  nsis: {
+    oneClick: true,
+    perMachine: true,
+    allowElevation: true,
+    allowToChangeInstallationDirectory: true,
+    createDesktopShortcut: true,
+    runAfterFinish: true,
+    installerIcon: ICON_ICO,
+    uninstallerIcon: ICON_ICO,
+  },
   asar: false,
   directories: {
     buildResources: 'assets',
