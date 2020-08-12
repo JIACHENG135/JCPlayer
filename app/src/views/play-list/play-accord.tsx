@@ -86,8 +86,45 @@ export default function PlayAccord(props: PlayAccordProps) {
       },
     })
   )
-  const classes = useStyles()
+  const secToTime = function(s: number) {
+    let t
+    if (s > -1) {
+      const hour = Math.floor(s / 3600)
+      const min = Math.floor(s / 60) % 60
+      const sec = s % 60
+      if (hour < 10) {
+        t = '0' + hour + ':'
+      } else {
+        t = hour + ':'
+      }
 
+      if (min < 10) {
+        t += '0'
+      }
+      t += min + ':'
+      if (sec < 10) {
+        t += '0'
+      }
+      t += sec.toFixed(2)
+    }
+    return t
+  }
+  const classes = useStyles()
+  const lastTime = $tools.getGlobalStore().get(item, undefined)
+  let lastRes
+  if (lastTime) {
+    lastRes = secToTime(lastTime)
+  } else {
+    lastRes = ''
+  }
+  const lastText = lastTime ? (
+    <p>
+      {'上次看到:'}
+      {lastRes}
+    </p>
+  ) : (
+    ''
+  )
   return (
     <div className={classes.root}>
       <Accordion>
@@ -106,6 +143,7 @@ export default function PlayAccord(props: PlayAccordProps) {
               <div style={{ height: '100%' }}>
                 <p>{name}</p>
                 <p>{'第' + index + '集'}</p>
+                {lastText}
 
                 <SpeedDial name={name} item={item} index={index}></SpeedDial>
               </div>

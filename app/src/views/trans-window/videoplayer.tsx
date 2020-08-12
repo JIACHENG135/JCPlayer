@@ -58,6 +58,7 @@ declare global {
 const { ipcRenderer, shell, remote, downloadItem } = window.require('electron')
 const win: BrowserWindow = remote.getCurrentWindow()
 const curUrl = $tools.getGlobalStore().get('play-url')
+
 // const win: BrowserWindow | undefined = $tools.windowList.get('Trans')
 
 export default class VideoPlayer extends React.Component<VideoPlayerPropsInferface, VideoPlayerState> {
@@ -93,6 +94,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerPropsInferfa
     let player
     const throttle = this.throttle
     const onresize = this.onResize
+
     videojs('my-video', {}).ready(function() {
       player = this
       win.on('resize', throttle(onresize, 200).bind(this, win, player))
