@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import './trans-window.less'
 import VideoPlayer from './videoplayer'
+import PerfectScrollbar from 'react-perfect-scrollbar'
+
 // import VideoPlayer from './player'
 
 import { IpcRenderer, Shell, BrowserWindow, Remote, DownloadItem, IpcMain } from 'electron'
@@ -100,9 +102,9 @@ export default class TransWindow extends React.Component<LoginProps, LoginState>
     }
 
     return (
-      <div className="container-window">
+      <PerfectScrollbar className="container-window">
         <VideoPlayer {...videoJsOptions} />
-      </div>
+      </PerfectScrollbar>
     )
   }
 } // class Demo end
