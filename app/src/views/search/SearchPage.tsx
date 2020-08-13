@@ -7,6 +7,8 @@ import { Layout, Input, Row, Col, Radio, Button } from 'antd'
 
 import ItemRow from './components/item-row'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import Grow from '@material-ui/core/Grow'
+import { v4 as uuidv4 } from 'uuid'
 
 import './search.less'
 
@@ -143,13 +145,21 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
           results: [],
         },
         loading: true,
+        canv: false,
       })
 
       axios.get('https://libgen-user.herokuapp.com/?v=' + value + '&page=1&size=24').then((resData: any) => {
-        this.setState({
-          resData: resData.data,
-          loading: false,
-        })
+        if (resData.data.results.length > 0) {
+          this.setState({
+            resData: resData.data,
+            loading: false,
+          })
+        } else {
+          this.setState({
+            canv: true,
+            loading: false,
+          })
+        }
       })
     } catch (err) {}
   }
@@ -174,7 +184,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
   }
 
   render() {
-    const { resData, loading, createWindowLoading } = this.state
+    const { resData, loading, createWindowLoading, canv } = this.state
     const results: Array<any> = resData.results
 
     // let bookLen
@@ -240,6 +250,22 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
       createWindowLoading || loading
         ? domain + theme + '/Fluid-10s-3000px.svg'
         : domain + theme + '/Fluid-10s-3000px.png'
+    const checked = true
+    const fof = canv ? (
+      <Grow
+        key={uuidv4()}
+        in={true}
+        style={{ transformOrigin: '-100 0 0' }}
+        {...(checked ? { timeout: 500 } : {})}
+      >
+        <div style={{ textAlign: 'center' }}>
+          <img src={$tools.asAssetsPath('/tools-icon/404.png')} alt="bg" className="bgimage" />
+          <img src={$tools.asAssetsPath('/tools-icon/404.svg')} alt="bg" className="bgimage" />
+        </div>
+      </Grow>
+    ) : (
+      ''
+    )
     return (
       <Layout
         className="demo-container"
@@ -288,6 +314,7 @@ export default class SearchPage extends React.Component<SearchProps, SearchState
             </div>
 
             {bookArea}
+            {fof}
             <div className="page-design">
               <span>{prevButton}</span>
               <span>{nextButton}</span>
