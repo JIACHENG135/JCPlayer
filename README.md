@@ -96,6 +96,11 @@ Alternatively you can build app yourself.
     yarn install
     yarn run dev
     ```
+  - tag
+    ```
+    git tag [version]
+    git push origin --tags
+    ```
 - for Windows Windows version is not quite assemble...
   - build
     ```
