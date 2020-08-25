@@ -3,7 +3,7 @@ const routes: RouteConfig[] = [
     key: 'Details',
     path: '/details',
     windowOptions: {
-      width: 800,
+      width: 900,
       height: 380,
       frame: false,
       title: 'Details',
