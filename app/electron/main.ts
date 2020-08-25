@@ -1,4 +1,4 @@
-import { app, Tray, BrowserWindow, globalShortcut, clipboard, screen, ipcMain } from 'electron'
+import { app, Tray, globalShortcut, ipcMain } from 'electron'
 
 import { creatAppTray } from './tray'
 
