@@ -114,7 +114,11 @@ Alternatively you can build app yourself.
     npm install
     npm run dev
     ```
-
+## Shorcut
+- OSX: <kbd>Cmd</kbd> <kbd>C</kbd> <kbd>1</kbd> 
+- Linux: <kbd>Ctrl</kbd> <kbd>C</kbd> <kbd>T</kbd>
+- Windows: <kbd>Ctrl</kbd> <kbd>C</kbd> <kbd>1</kbd> 
+- There are 6 themes from 1 to 5 and 7
 ## Contributors
 
 ### Code Contributors
