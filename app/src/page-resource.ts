@@ -13,6 +13,7 @@ export const About = import('./views/about/about')
 export const NoMatch = import('./views/no-match/no-match')
 
 export const SearchPage = import('./views/search/SearchPage')
+export const SearchPageTest = import('./views/search/SearchPageTest')
 
 export const Register = import('./views/register/Register')
 

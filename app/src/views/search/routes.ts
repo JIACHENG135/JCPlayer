@@ -2,7 +2,7 @@ import { Hidden } from '@material-ui/core'
 
 const routes: RouteConfig[] = [
   {
-    key: 'SearchPage',
+    key: 'SearchPageTest',
     path: '/search',
     createConfig: {
       single: true,
